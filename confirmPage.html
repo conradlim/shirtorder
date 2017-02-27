@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>Trader Joe's CONFIRMATION PAGE - </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" />
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+  
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link href="tj_style_git.css" rel="stylesheet" type="text/css"> 
+ <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+
+
+   
+             <!--[if lt IE 9]>
+           <script src="/js/html5shiv.js" type="text/javascript"></script>
+           <script src="/js/respond.min.js" type="text/javascript"></script>
+          <![endif]-->
+
+
+
+</head>
+  <body>
+
+  
+<div class="jumbotron">
+  <h1 class="jumbotitle" style="text-align:center;font-family:fredericka the great;size:40px;">TRADER JOE'S INSIDE</h1>
+   <div class="headline container">
+            <div class="row">
+           
+            <div class="col-sm-4">
+                <h3>STORE NUMBER - #112</h3>
+            </div>
+            <div class="col-sm-8 col-sm-offset-0 cDate">
+              <span id="cDate"></span>
+            </div>
+        </div>
+     </div>
+  </div>
+
+
+<div class="container containment2">
+   <div class="row">
+  <div class="col-sm-12">
+
+
+ <H1 class="jumbo" style="text-align:center;font-family:fredericka the great;size:30px;color:red">Order Successfully Entered!</H1>
+<hr>
+
+ <div class="namelbl2">
+        <label>ITEMS FOR: </label>&nbsp<input type="text" class="" data-fname="fullName" placeholder="     MARIA ESPINOZA"  readonly><br><br>
+
+        <label>REFERENCE NUMBER: </label>&nbsp<input type="text" class="" data-fname="fullName" placeholder="    0812ME"  readonly><br><br>
+</div>
+</div>
+<div class="col-sm-6 col-sm-offset-3">
+ <div class="wareHouse">
+ <legend>  <h3>Items From Warehouse:  </h3> <input type="text" class="wareHouseSub" data-fname="fullName" placeholder="50431234 CHINO-STUFF"  readonly></legend>
+ </div>
+ </div>
+<!-- <div class="col-md-6 col-sm-offset-3">
+  <div class="wareHouseSub">
+ <p>50431234 CHINO-STUFF</p>
+</div>
+</div> -->
+<div class="col-sm-6 col-sm-offset-3">
+ <ul class='well items'>
+      <li> <span style="font-family: wingdings; font-size: 150%;">&#10003;</span>Safety Cutter: <span><b>LEFT HANDED</b></span></li>
+      <li> <span style="font-family: wingdings; font-size: 150%;">&#10003;</span> Shirt Size: <span><b>MEDIUM</b></span></li>
+      <li>  <span style="font-family: wingdings; font-size: 150%;">&#10003;</span><b> WELCOME PACK KIT</b></li>
+      <li>  <span style="font-family: wingdings; font-size: 150%;">&#10003;</span><b>LEATHER HOLSTER</b></li>
+</ul>
+
+ <div class="taghouse">
+   <legend><h3>Items From Chucks Engraving:</h3></legend>
+ </div>
+
+ <ul class="well items">
+      <li>NAME TAG: <span><b>MARIA</b></span></li>
+      <li>TYPE: <span><b>Magnet</b></span></li>
+</ul>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script> 
+
+
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="amznScript.js"></script>
+
+<script>  
+ //                   Returns CUTTER SIDE
+
+        $(".sizeButtons > .btn").click(function(){
+             var active = $(this).addClass("active");
+             var shirtSizeTwo = $(active).val();
+           $('.sizeButtons > .btn').not($(this)).removeClass('active')    // Remove any existing active classes
+             $("#addToCart").attr("data-size",shirtSizeTwo);
+            // $("#addToCart").removeClass('disabled');
+   
+      })
+</script>
+
+<script language="JavaScript">
+      $(document).ready(function(){
+         
+          currentDate();
+              function currentDate()
+              {
+              var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+
+              var today = new Date();
+              var dd = today.getDate();
+              var mm = today.getMonth(); 
+              var yyyy = today.getFullYear();
+
+              if (dd<10){
+                dd='0'+dd
+              }
+              var today = monthNames[mm]+' '+dd+','+yyyy;
+              //console.log(today);
+              document.getElementById("cDate").innerHTML = today;
+
+              }
+
+
+      });
+
+
+
+
+</script>
+ 
+
+
+  </body>
+  </html>
+

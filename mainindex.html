@@ -1,0 +1,541 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Site Created and Coded by Conrad Lim - Trader Joe's Project - Shirt Order Form" content=" ">
+    <meta name="Conrad Lim" content="Trader Joe's Ordering Form for Hawaiian Shirts.">
+    <link rel="icon" type="image/png" />
+
+    <!-- Site Built and Coded by Conrad Lim  -->
+
+
+    <title>Trader Joe's Hawaiian Shirt </title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/reg-main.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+
+    <!-- script to toggle email form -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function toggleDiv(divId) {
+            $("#" + divId).toggle();
+        }
+
+    </script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide" style="margin-top:-55px">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" id="carousel">
+            <div class="item active">
+                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/banner_07.jpeg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_5.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_3.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <div class="container">
+        <div id="countDiv" style="margin-left:950px;margin-top:15px;">
+            <a href="index.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
+            <label style="font-weight:bold;margin-left:20px ">Cart Count: </label>&nbsp;
+            <a href="tj_ShoppingCart.html">
+                <span id="countContainer" style="margin-left:3px;padding:3px 4px;background-color:darkred;border:1px solid darkred;border-radius:25px;">
+
+                    <span id="showCount" style="color:#fff;font-weight:bold;margin:3px 5px; "></span>
+
+                </span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+        <table style="border:1px dotted gray; width:100%">
+            <tr>
+                <td>
+
+                    <h3 class="page-header" style="color:black;">**OPTIONAL**:<br /><br /> If you don't wish to select your own shirts, we can randomly select the 7 shirts for you.  Just fill in the form in the link below:</h3>
+
+
+                    <div id="randShirtFrm" style="display:none;text-align:center">
+                        <form action="//formspree.io/pcuriel@traderjoes.com" method="POST">
+
+                            <input name="_subject" value="I Choose Random Shirts" type="hidden">
+
+                            <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/email-received.html" type="hidden">
+
+                            <h3 style="text-align:center">Full Name:</h3>
+                            <input name="Name:" id="_name" required type="text">
+                            <h3 style="text-align:center">Email:</h3>
+                            <input name="Email" id="_email" required type="email">
+                            <h3 name="Gender" style="text-align:center">Choose Fit:</h3>
+                            <select id="ddlFit" onchange="return changeType();">
+                                <option name="Select">Select</option>
+                                <option data-fit="Mens">Mens</option>
+                                <option data-fit="Womens">Womens</option>
+                            </select>
+                            <h3 name="StyleChoice:" style="text-align:center;" required>Style Choice:</h3>
+                            <select id="ddlStyle">
+                                <option>--</option>
+                            </select>
+                            <h3 name="Size:" style="text-align:center">Sizes Available:</h3>
+                            <select id="ddlSize">
+                                <option>--</option>
+                            </select>
+
+                            <br />
+                            <br />
+
+                            <button type="submit" class="btn btn-primary">Submit Order</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="ranDiv" style="text-align:center;display:block;margin-top:-30px">
+                        <h3>  <a href="javascript:toggleDiv('randShirtFrm');">RANDOM SHIRT FORM</a></h3>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Men's Reverse Hawaiian Shirts
+                </h1>
+            </div>
+        </div>
+        <!-- Portfolio Section -->
+        <div class="row">
+
+            <div class="col-md-3">
+                <a href="mini-tahitian-m.html">
+                    <div class="thumbtitle">Mini Tahitian </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/MiniTahitianWhite.jpg" title="mini tahitian">
+                </a>
+            </div>
+            <div class="col-md-3">
+
+                <a href="waikiki-batik-m.html">
+                    <div class="thumbtitle">Waikiki Batik </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/productpage/waikiki_batik-Grey.jpg" title="Waikiki Batik">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="tahitian-blocks-m.html">
+                    <div class="thumbtitle">Tahitian Blocks </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tahitianBlocks_.jpg" title="tahitian blocks">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="molokai-m.html">
+                    <div class="thumbtitle">Molokai </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Molokai_.jpg" title="molokai">
+                </a>
+            </div>
+
+            <!--- Second Line for Shirt -->
+
+            <div class="col-md-3">
+                <a href="hibiscus-garden-m.html">
+                    <div class="thumbtitle">Hibiscus Garden </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Garden-Black_.jpg" title="hibiscus garden">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="wild-tapa-m.html">
+                    <div class="thumbtitle">Wild Tapa </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Wild%20Tapa.jpg" title="wild tapa">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="sealife-m.html">
+                    <div class="thumbtitle">Sealife </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/TJ_Sealife.jpg" title="sealife">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="hibiscus-shadow-m.html">
+                    <div class="thumbtitle">Hibiscus Shadow </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Shadow.jpg" title="hibiscus shadow">
+                </a>
+            </div>
+
+            <!--- Third Line for Shirt -->
+
+            <div class="col-md-3">
+
+                <a href="mini-pineapple-m.html">
+                    <div class="thumbtitle">Mini Pineapple </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Mini%20Pineapple_.jpg" title="mini pineapple">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="monsterra-stamp-m.html">
+                    <div class="thumbtitle">Monsterra Stamp</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/monsterraStamp.jpg" title="monsterra stamp">
+                </a>
+            </div>
+
+
+            <div class="col-lg-12">
+                <h3 class="page-header">
+                    Additional Men's Shirt Designs
+                </h3>
+
+
+                <div class="col-md-3">
+                    <a href="multi-tapa-m.html">
+                        <div class="thumbtitle">Multi Tapa</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/multi_tapa-2.jpg" title="multi tapa">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="ocean-pareau-m.html">
+                        <div class="thumbtitle">Ocean Pareau</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/ocean_pareau-3.jpg" title="ocean pareau">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="pineapple-a-m.html">
+                        <div class="thumbtitle">Pineapple A</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/pineapple_A-1.jpg" title="pineapple A">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="moorea-m.html">
+                        <div class="thumbtitle">Moorea</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/moorea-2.jpg" title="moorea">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="pua-aina-m.html">
+                        <div class="thumbtitle">Pua Aina</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/pua_aina-3.jpg" title="pua aina">
+                    </a>
+                </div>
+            </div>
+
+            <!-- WOMENS SECTION -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Women's Hawaiian Shirts
+                    </h1>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <a href="diamond-head-w.html">
+                    <div class="thumbtitle">Diamond Head</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/DiamondHead_w.jpg" title="diamond head">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="hapuna-moon-w.html">
+                    <div class="thumbtitle">Hapuna Moon</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/HapunaMoon_w.jpg" title="hapuna moon">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="mini-tahitian-w.html">
+                    <div class="thumbtitle">Mini Tahitian</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/MiniTahitianWhite.jpg" title="Mini Tahitian">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="wild-tapa-w.html">
+                    <div class="thumbtitle">Wild Tapa</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Wild%20Tapa.jpg" title="wild tapa">
+                </a>
+            </div>
+
+            <!--- Second Line for Shirt -->
+
+            <div class="col-md-3">
+                <a href="coconut-trees-w.html">
+                    <div class="thumbtitle">Coconut Trees </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/coconut-trees_w.jpg" title="coconut trees">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="lanikai-pareau-w.html">
+                    <div class="thumbtitle">Lanikai Pareau</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Lanikai%20Pareau_w.jpg" title="lanikai pareau">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="hibiscus-garden-w.html">
+                    <div class="thumbtitle">Hibiscus Garden</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Garden-Black_.jpg" title="hibiscus garden">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="manoa-w.html">
+                    <div class="thumbtitle">Manoa</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tj_MonoaBlackSm.jpg" title="Monoa">
+                </a>
+            </div>
+
+            <!--- Third Line for Shirt -->
+
+            <div class="col-md-3">
+                <a href="sealife-m.html">
+                    <div class="thumbtitle">Sealife</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/TJ_Sealife.jpg" title="sealife">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="hibiscus-shadow-w.html">
+                    <div class="thumbtitle">Hibiscus Shadow</div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Shadow.jpg" title="hibiscus shadow">
+                </a>
+            </div>
+
+            <div class="col-lg-12">
+                <h3 class="page-header">
+                    Additional Women's Shirt Designs
+                </h3>
+
+                <div class="col-md-3">
+                    <a href="mini-blonde-w.html">
+                        <div class="thumbtitle">Mini Blonde Pareau</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/mini_blonde_w-2.jpg" title="mini blonde pareau">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="palm-window-w.html">
+                        <div class="thumbtitle">Palm Window</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/palm_window_w-1.jpg" title="palm window">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="mini-scenic-w.html">
+                        <div class="thumbtitle">Mini Scenic</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/mini_scenic_w-3.jpg" title="mini scenic">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="moorea-w.html">
+                        <div class="thumbtitle">Moorea</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/moorea_w-2.jpg" title="moorea women">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="pineapple-a-w.html">
+                        <div class="thumbtitle">Pineapple A</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/pineapple_A_w-2.jpg" title="pineapple A ">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="pua-aina-w.html">
+                        <div class="thumbtitle">Pua Aina</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/pua_aina_w-1.jpg" title="pua aina">
+                    </a>
+                </div>
+
+                <!--Fifth Line women's shirts -->
+                <div class="col-md-3">
+                    <a href="hibiscus-spray-w.html">
+                        <div class="thumbtitle">Hibiscus Spray</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/hibiscus_spray-4.jpg" title="hibiscus spray ">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="manoa-rayon-w.html">
+                        <div class="thumbtitle">Manoa</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/manoa_rayon_w-1.jpg" title="manoa rayon">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="oli-pau-rayon-w.html">
+                        <div class="thumbtitle">Oli Pau</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/oli_pau_w-1.jpg" title="oli pau rayon">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="kauai-leaf-rayon-w.html">
+                        <div class="thumbtitle">Kauai Leaf</div>
+                        <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/kauai_leaf_w-1.jpg" title="kauai leaf rayon">
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- /.row -->
+            <!--ORDER FORM -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well">
+                        <h1 class="page-header">
+                            Order Form
+                        </h1>
+                        <div>
+                            <div class="button">
+                                <a href="contact2.html" onclick="return mensorder('contact2.html')" class="btn btn-primary">MEN'S ORDER FORM</a>
+                                &nbsp;&nbsp;&nbsp;
+
+                                <a href="contact2.html" onclick="return womensorder('contact.html')" class="btn btn-primary">WOMEN'S ORDER FORM</a>
+                            </div>
+                        </div>
+
+                        <h2 class="page-header" style="font-family:Roboto;"><small><strong>Questions? Please use this <a href="javascript:toggleDiv('myContent');">Form</a></strong></small></h2>
+
+
+                        <div id="myContent" style="display:none;text-align:center">
+                            <form action="//formspree.io/pcuriel@traderjoes.com" method="POST">
+
+                                <input name="_subject" value="Questions On Hawaiian Shirt Orders" type="hidden">
+
+                                <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/email-received.html" type="hidden">
+
+                                <h3 style="text-align:center">Full Name:</h3>
+                                <input name="Name:" required="" type="text">
+                                <h3 style="text-align:center">Email:</h3>
+                                <input name="Email" type="email">
+
+
+                                <h3 style="text-align:center">Questions:</h3>
+                                <textarea name="CM_Message:" id="comments2" placeholder="Type your question." rows="6" cols="60"></textarea><br />
+
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!-- /.row -->
+
+            <div></div>
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <font style="color:white;float:right;font-family:century-gothic;font-size:10px;"> Copyright &copy; Conrad Lim 2016 TJProjectHR</font>
+                    </div>
+                </div>
+
+            </footer>
+        </div>
+    </div>
+    <!-- /.container -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contactform.js"></script>
+    <script type="text/javascript">
+        var _name = document.getElementById('_name')
+        var _email = document.getElementById('_email')
+        var _fit = document.getElementById('ddlFit')
+        var _style = document.getElementById('ddlStyle')
+        var _size = document.getElementById('ddlSize')
+
+
+
+        function changeType() {
+            $('#ddlStyle').html('')
+            $('#ddlSize').html('')
+            if (_fit.value == "Mens") {
+                $('#ddlStyle').append('<option value="' + '' + '">' + 'Select' + '</option>')
+                $('#ddlStyle').append('<option value="' + 'Pullover' + '">' + 'Pullover' + '</option>')
+                $('#ddlStyle').append('<option value="' + 'Button' + '">' + 'Button' + '</option>')
+            } else if (_fit.value == "Womens") {
+                $('#ddlStyle').append('<option value="' + '' + '">' + 'Select' + '</option>')
+                $('#ddlStyle').append('<option value="' + 'Pullovers' + '">' + 'Pullovers' + '</option>')
+                $('#ddlStyle').append('<option value="' + 'Buttons' + '">' + 'Buttons' + '</option>')
+            } else {
+                $('#ddlStyle').append('<option value="' + '' + '">' + '--' + '</option>')
+                $('#ddlSize').val('<option value="' + 'Select' + '">' + '--' + '</option>')
+
+            }
+        }
+
+
+        //         Populate Size List Based on Pullover/Button DDL Selection //
+        //mens
+        Pullover = new Array("Pullover Sizes", "XSmall", "Small", "Medium", "Large", "Large Tall", "XLarge", "XLargeTall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
+        Button = new Array("Button Sizes", "XSmall", "Small", "Medium", "Large", "Large Tall", "XLarge", "XLargeTall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
+
+        //womens
+        Pullovers = new Array("Pullovers Sizes", "XXSmall", "XSmall", "Small", "Medium", "Large", "XLarge", "2XL");
+        Buttons = new Array("Buttons Sizes", "XSmall", "Small", "Medium", "Large", "XLarge", "2XLarge", "3XLarge");
+        Select = new Array("--")
+
+
+        $(function () {
+            $('#ddlStyle').change(function () {
+                populateSelect();
+            });
+        });
+        function populateSelect() {
+            shirtstyle = _style.value
+            console.log(shirtstyle)
+            $('#ddlSize').html('--');
+            if (_style.value == 'Select') {
+                console.log(_style.value)
+                $('#ddlSize').append('<option value="' + 'Select' + '">' + '--' + '</option>');
+            } else {
+                eval(shirtstyle).forEach(function (t) {
+                    $('#ddlSize').append('<option value="' + t + '">' + t + '</option>');
+
+                });
+            }
+        };
+
+
+    </script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+        //$('.carousel').carousel({
+        //    interval: 10000 //changes the speed
+        //})
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/tjfav.png">
+    <title>Hapuna Moon -Trader Joe's Hawaiian Shirt </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/reg-main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <img src="photos/tj_logo_b.png">
+                </div>
+            </div>
+            <div id="countDiv" style="margin-left:950px;margin-top:15px;">
+                <a href="index.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
+                <label style="font-weight:bold;font-size:15px;margin-left:20px" class="glyphicon glyphicon-shopping-cart"></label>&nbsp;
+                <a href="tj_ShoppingCart.html">
+                    <span id="countContainer" style="margin-left:-6px;padding:3px 3px;background-color:darkred;border:1px solid darkred;border-radius:25px;">
+                        <span id="showCount" style="color:#fff;font-weight:bold;margin:3px 5px; "></span>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Wild Tapa (Cotton)
+                    <small>Style #1738</small>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+            <div class="col-md-8">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" id="suwrapper">
+                        <div class="item active">
+                            <img class="img-responsive" src="photos/productpage/Wild%20Tapa.jpg" title="">
+                            <p class="sutext">Wild Tapa - Red</p>
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/wild_tapa_w-1.jpg" title="">
+                            <p class="sutext">Black</p>
+                        </div>
+
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/wild_tapa_w-2.jpg" title="">
+                            <p class="sutext">Navy</p>
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/wild_tapa_w-3.jpg" title="">
+                            <p class="sutext">Silver</p>
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/wild_tapa_w-4.jpg" title="">
+                            <p class="sutext">Red</p>
+                        </div>
+
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="display:block;margin:auto">
+
+                <h3>Styles Available:</h3>
+                <select id="ddlType" class="ddList" name="Type">
+                    <option value="Select">Select Type</option>
+                    <option data-type="Pullover">Pullover</option>
+                    <option data-type="Button">Button</option>
+                </select>
+                <br />
+                <h3>Colors Available</h3>
+                <select id="ddlStyle" class="ddList" name="Color">
+                    <option value="Select">Select Color</option>
+                    <option data-id="1738" data-style="Wild Tapa" data-gender="Womens" data-color="Black" data-count=1>Black</option>
+                    <option data-id="1738" data-style="Wild Tapa" data-gender="Womens" data-color="Navy" data-count=1>Navy</option>
+                    <option data-id="1738" data-style="Wild Tapa" data-gender="Womens" data-color="Silver" data-count=1>Silver</option>
+                    <option data-id="1738" data-style="Wild Tapa" data-gender="Womens" data-color="Red" data-count=1>Red</option>
+                </select>
+                <h3>Sizes Available:</h3>
+                <select id="ddlSize" class="ddList" name="Size">
+
+                </select>
+                <div id="btnDiv">
+                    <p>
+                        Hover the cursor over the image to view the color.
+                    </p>
+
+                    <button id="btnAlternate" onclick="checkDropList();" class="btn" style="float:right;margin:30px auto 15px auto;" disabled>ADD ALTERNATE</button>
+                    <button id="btnAdd" onclick="checkDropList();" class="btn" style="float:right;display:inline-block;width:100px;margin:30px 5px 15px auto;">ADD</button> &nbsp;
+
+                </div>
+                <div id="messageDiv" style="display:block;margin-top:55px;border-radius:5px;">
+                    <span id="cartMessages" style="text-align:center;display:block;font-family:roboto;font-size:20px;color:darkred;padding:5px"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/contactform.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+            function populateSelect() { shirtstyle = _ddlType.value, $("#ddlSize").html(""), eval(shirtstyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } function populateSelectOnLoad() { shirtStyle = shirtCart[0].type, console.log("page js"), $("#ddlSize").html(""), eval(shirtStyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } Pullover = new Array("Pullover Sizes", "XXSmall", "XSmall", "Small", "Medium", "Large", "XLarge", "2XL"), Button = new Array("Button Sizes", "XSmall", "Small", "Medium", "Large", "XLarge", "2XLarge", "3XLarge"), Select = new Array("--"); var _ddlType = document.getElementById("ddlType"); $(function () { $("#ddlType").change(function () { populateSelect() }) });
+    </script>
+</body>
+
+</html>
