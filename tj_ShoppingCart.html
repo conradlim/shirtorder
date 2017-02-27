@@ -62,7 +62,7 @@
         <h1>Shopping Cart</h1>
     </div>
     <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
-        <input name="_subject" value="New Hawaiian Shirt Order" type="hidden">
+        <input id="form-subject" name="_subject" value="New Hawaiian Shirt Order" type="hidden">
         <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/test-contact.html" type="hidden">
 
         <div id="tblDiv" style="display:block;margin-top:10px;">
@@ -74,12 +74,12 @@
 
         <div style="text-align:center;">
             <h3>Name:</h3>
-            <input name="Name:">
+            <input id="form-name" name="Name:">
             <h3>Email:</h3>
-            <input name="_replyto" type="email">
+            <input id="form-email" name="_replyto" type="email">
 
             <h3>Specify WCO or ECO:</h3>
-            <select name="Company Name">
+            <select id="form-office" name="Company Name">
                 <option>--</option>
                 <option name="WCO">West Coast Office</option>
                 <option name="ECO">East Coast Office</option>
@@ -200,8 +200,10 @@
             url: "https://formspree.io/conradlimphoto@gmail.com",
             method: "POST",
             data: {
-                ShirtStyle: shirtCart.id,
-                ShirtColor: shirtCart.color
+                Name: document.getElementById('form-name').value,
+                Office: document.getElementById('form-company').value,
+                Email: document.getElementById('form-email').value,
+                Cart: document.getElementById('tblDiv').value,
             },
             //data: { message: "hello!" },
             dataType: "json"
