@@ -74,14 +74,26 @@
 
         <div id="btnDiv" style="margin:15px auto;text-align:center">
 
-            <button id="btnClear" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> &nbsp;
-            <button id="btnSubmit" onclick="" type="submit" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>
+            <button id="btnClear" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> &nbsp;
+            <button id="btnSubmit" type="submit" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>
 
         </div>
         <div style="text-align:center;">
-            <h3>Enter your Email:</h3>
+            <h3>Name:</h3>
+            <input name="Name:" type="email">
+        </div>
+        <div style="text-align:center;">
+            <h3>Email:</h3>
             <input name="_replyto" type="email">
         </div>
+        <div style="text-align:center;">
+            <h3>Specify WCO or ECO:</h3>
+               <select name="Company Name">
+                   <option name="WCO">West Coast Office</option>
+                   <option name="ECO">East Coast Office</option>
+               </select>
+        </div>
+
         </form>
 
         <div id="messageDiv" style="display:block;margin:75px auto;width:25%">
@@ -129,14 +141,16 @@
                 }
                 for (var i = 0; i < shirtCart.length; i++) {
                     html += "<tr>";
-                    html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeItem(this)' name='Shirt Order: ' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + '" data-id="' + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
+                    html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' name='Shirt Order: ' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
                     html += "<td>" + shirtCart[i].id + " - " + shirtCart[i].name + "</td>";
                     html += "<td>" + shirtCart[i].color + "</td>";
                     html += "<td>" + shirtCart[i].size + "</td>";
                     html += "<td>" + shirtCart[i].type + "</td>";
                     html += "<td>" + shirtCart[i].gender + "</td>"
                     html += "<td>" + shirtCart[i].count + "</td>";
+                  
                     html += "</tr>";
+
                 }
                 html += ""
                 html += "</table>";
@@ -155,7 +169,7 @@
                     }
                     for (var i = 0; i < alternateCart.length; i++) {
                         html += "<tr>";
-                        html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeAlternateItem(this)' data-id='" + alternateCart[i].id + "' data-color='" + alternateCart[i].color + "'></button></td>";
+                        html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeAlternateItem(this);' data-id='" + alternateCart[i].id + "' data-color='" + alternateCart[i].color + "'></button></td>";
                         html += "<td>A" + alternateCart[i].id + "-" + alternateCart[i].name + "</td>";
                         html += "<td>" + alternateCart[i].color + "</td>";
                         html += "<td>" + alternateCart[i].size + "</td>";
