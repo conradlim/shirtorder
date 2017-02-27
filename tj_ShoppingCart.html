@@ -88,7 +88,7 @@
         <div id="btnDiv" style="margin:15px auto;text-align:center">
 
             <button id="btnClear" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> &nbsp;
-            <button id="btnSubmit" type="submit" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>
+            <button id="btnSubmit" onclick="submitCall()" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>
 
         </div>
 
@@ -113,6 +113,7 @@
 
         function loadCart() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
+            
         }
 
 
@@ -123,8 +124,6 @@
 
             count = 1
             var tableDiv = document.getElementById("tblDiv")
-            //var tableOne = document.createElement("TABLE")
-          //  var tableBody = document.createElement('TBODY')
             var header = new Array()
             header[0] = ""
             header[1] = "STYLE"
@@ -133,7 +132,6 @@
             header[4] = "TYPE"
             header[5] = "M/W"
             header[6] = "QUANTITY"
-        //    tableOne.appendChild(tableBody)
 
             var html = "<table id='itemsInCart' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
             var insertString = ""
@@ -195,21 +193,22 @@
 
         showCartitems()
 
-
-        $.ajax({
-            url: "https://formspree.io/conradlimphoto@gmail.com",
-            method: "POST",
-            data: {
-                Name: document.getElementById('form-name').value,
-                Office: document.getElementById('form-office').value,
-                Email: document.getElementById('form-email').value,
-                Cart: document.getElementById('tblDiv').innerText,
-                message: "hello!",
-                
-            },
-            //data: { },
-            dataType: "json"
-        });
+        function submitCall() {
+            $.ajax({
+                url: "https://formspree.io/conradlimphoto@gmail.com",
+                method: "POST",
+                data: {
+                    Name: document.getElementById('form-name').value,
+                    Office: document.getElementById('form-office').value,
+                    Email: document.getElementById('form-email').value,
+                    Cart: document.getElementById('tblDiv').innerText,
+                    Cart_Two: "",
+                    message: "hello!",
+                },
+                //data: { },
+                dataType: "json"
+            });
+        }
     </script>
 </body>
 </html>
