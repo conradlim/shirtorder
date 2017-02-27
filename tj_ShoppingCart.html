@@ -74,7 +74,7 @@
 
         <div style="text-align:center;">
             <h3>Name:</h3>
-            <input id="form-name" name="form-name">
+            <input id="form-name">
             <h3>Email:</h3>
             <input id="form-email" type="email">
 
@@ -205,9 +205,11 @@
                     Name: document.getElementById('form-name').value,
                     Office: document.getElementById('form-office').value,
                     Email: document.getElementById('form-email').value,
-                    Cart: document.getElementById('tblDiv').innerText,                   
+                    _subject: document.getElementById('form-subject').value,
+                    Cart: document.getElementById('tblDiv').innerText,
+                    Message: "Replacement Shirts Below",
                     Alternate_Cart: document.getElementById('tblAlternateDiv').innerText,
-                    message: "hello!",
+                    
                 },
                 //data: { },
                 dataType: "json"
