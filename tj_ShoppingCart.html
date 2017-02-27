@@ -74,7 +74,7 @@
 
         <div style="text-align:center;">
             <h3>Name:</h3>
-            <input id="form-name" >
+            <input id="form-name" name="form-name">
             <h3>Email:</h3>
             <input id="form-email" type="email">
 
@@ -206,7 +206,7 @@
                     Office: document.getElementById('form-office').value,
                     Email: document.getElementById('form-email').value,
                     Cart: document.getElementById('tblDiv').innerText,                   
-                    Alternate_Cart: document.getElementById('tblAlternateDiv'),
+                    Alternate_Cart: document.getElementById('tblAlternateDiv').innerText,
                     message: "hello!",
                 },
                 //data: { },
