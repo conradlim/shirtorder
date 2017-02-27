@@ -82,7 +82,7 @@
             <select id="form-office">
                 <option>--</option>
                 <option value="WCO">West Coast Office</option>
-                <option  value="ECO">East Coast Office</option>
+                <option value="ECO">East Coast Office</option>
             </select>
         </div>
         <div id="btnDiv" style="margin:15px auto;text-align:center">
@@ -95,7 +95,7 @@
         <div id="orderForm" style="display:block;margin-top:10px">
 
         </div>
-      
+
     </form>
 
     <div id="messageDiv" style="display:block;margin:75px auto;width:25%">
@@ -107,13 +107,9 @@
     <script src="js/jquery.js"></script>
     <script src="js/contactform.js"></script>
     <script type="text/javascript">
-
-
-
-
         function loadCart() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
-            
+
         }
 
 
@@ -131,7 +127,7 @@
             header[3] = "SIZE"
             header[4] = "TYPE"
             header[5] = "M/W"
-        //    header[6] = "QUANTITY"
+            //    header[6] = "QUANTITY"
 
             var html = "<table id='itemsInCart' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
             var insertString = ""
@@ -149,7 +145,7 @@
                 html += "<td>" + shirtCart[i].size + "</td>";
                 html += "<td>" + shirtCart[i].type + "</td>";
                 html += "<td>" + shirtCart[i].gender + "</td>"
-            //    html += "<td>" + shirtCart[i].count + "</td>";
+                //    html += "<td>" + shirtCart[i].count + "</td>";
 
                 html += "</tr>";
 
@@ -176,7 +172,7 @@
                     html += "<td>" + alternateCart[i].color + "</td>";
                     html += "<td>" + alternateCart[i].size + "</td>";
                     html += "<td>" + alternateCart[i].type + "</td>";
-                    html += "<td>" + alternateCart[i].gender + "</td>"                 
+                    html += "<td>" + alternateCart[i].gender + "</td>"
                     html += "</tr>";
                 }
                 html += ""
@@ -195,17 +191,17 @@
         function submitCall() {
             $.ajax({
                 url: "https://formspree.io/conradlimphoto@gmail.com",
-                method: "POST",            
+                method: "POST",
                 data: {
                     Name: document.getElementById('form-name').value,
                     Office: document.getElementById('form-office').value,
                     Email: document.getElementById('form-email').value,
                     _subject: document.getElementById('form-subject').value,
                     Cart: document.getElementById('tblDiv').innerText,
-                    Message: "Replacement Shirts Below",
+                    NOTICE: "Alternate Shirts Have an 'A' By Style ID",
                     Alternate_Cart: document.getElementById('tblAlternateDiv').innerText,
-                    JSON_Cart: JSON.parse(localStorage.getItem("CartItems")),
-                },    
+                    cartOO: showCartitems(),
+                },
                 dataType: "json"
             });
         }
