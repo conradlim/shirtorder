@@ -62,7 +62,7 @@
         <h1>Shopping Cart</h1>
     </div>
     <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
-        <input id="form-subject" name="_subject" value="New Hawaiian Shirt Order" type="hidden">
+        <input id="form-subject" value="New Hawaiian Shirt Order" type="hidden">
         <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/test-contact.html" type="hidden">
 
         <div id="tblDiv" style="display:block;margin-top:10px;">
@@ -176,8 +176,7 @@
                     html += "<td>" + alternateCart[i].color + "</td>";
                     html += "<td>" + alternateCart[i].size + "</td>";
                     html += "<td>" + alternateCart[i].type + "</td>";
-                    html += "<td>" + alternateCart[i].gender + "</td>"
-                    html += "<td>" + alternateCart[i].count + "</td>";
+                    html += "<td>" + alternateCart[i].gender + "</td>"                 
                     html += "</tr>";
                 }
                 html += ""
@@ -196,11 +195,7 @@
         function submitCall() {
             $.ajax({
                 url: "https://formspree.io/conradlimphoto@gmail.com",
-                method: "POST",
-                //headers: {          
-                //    accepts: "application/json; charset=utf-8",
-                //    "Content-Type": "application/json; charset=utf-8"
-                //},    
+                method: "POST",            
                 data: {
                     Name: document.getElementById('form-name').value,
                     Office: document.getElementById('form-office').value,
@@ -209,9 +204,8 @@
                     Cart: document.getElementById('tblDiv').innerText,
                     Message: "Replacement Shirts Below",
                     Alternate_Cart: document.getElementById('tblAlternateDiv').innerText,
-                    
-                },
-                //data: { },
+                    JSON_Cart: JSON.parse(localStorage.getItem("CartItems")),
+                },    
                 dataType: "json"
             });
         }
