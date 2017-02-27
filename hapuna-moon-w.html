@@ -137,7 +137,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript">
 
-            function populateSelect() { shirtstyle = _ddlType.value, $("#ddlSize").html(""), eval(shirtstyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } function populateSelectOnLoad() { shirtStyle = shirtCart[0].type, console.log("page js"), $("#ddlSize").html(""), eval(shirtStyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } Pullover = new Array("Pullover Sizes", "XXSmall", "XSmall", "Small", "Medium", "Large", "XLarge", "2XL"), Button = new Array("Button Sizes", "XSmall", "Small", "Medium", "Large", "XLarge", "2XLarge", "3XLarge"), Select = new Array("--"); var _ddlType = document.getElementById("ddlType"); $(function () { $("#ddlType").change(function () { populateSelect() }) });
+            function populateSelect() { shirtstyle = _ddlType.value, $("#ddlSize").html(""), eval(shirtstyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } function populateSelectOnLoad() { shirtStyle = shirtCart[0].type, console.log("page js"), $("#ddlSize").html(""), eval(shirtStyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } Pullover = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL"), Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL"), Select = new Array("--"); var _ddlType = document.getElementById("ddlType"); $(function () { $("#ddlType").change(function () { populateSelect() }) });
         </script>
 </body>
 
