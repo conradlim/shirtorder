@@ -183,6 +183,13 @@
             $.ajax({
                 url: "https://formspree.io/conradlimphoto@gmail.com",
                 method: "POST",
+                success: function () {
+                    window.location = "https://conradp04.github.io/testingShirt/mainindex"
+                        console.log("Success")
+                },
+                error: function(){
+                    console.log("FAIL")
+                },
                 data: {
                     Name: document.getElementById('form-name').value,
                     Office: document.getElementById('form-office').value,
