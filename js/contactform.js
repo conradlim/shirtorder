@@ -361,12 +361,12 @@ function showCartitems() {
 
 //         Populate Size List Based on Pullover/Button DDL Selection //
 //mens
-Pullover = new Array("Pullover Sizes", "XSmall", "Small", "Medium", "Large", "Large Tall", "XLarge", "XLargeTall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
-Button = new Array("Button Sizes", "XSmall", "Small", "Medium", "Large", "Large Tall", "XLarge", "XLargeTall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
+Pullover = new Array("Pullover Sizes", "XS", "SM", "MED", "LG", "LG-Tall", "XL", "XL-Tall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
+Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-Tall", "XL", "XL-Tall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
 
 //womens
-Pullovers = new Array("Pullover Sizes", "XXSmall", "XSmall", "Small", "Medium", "Large", "XLarge", "2XL");
-Buttons = new Array("Button Sizes", "XSmall", "Small", "Medium", "Large", "XLarge", "2XLarge", "3XLarge");
+Pullovers = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
+Buttons = new Array("Button Sizes", "XS", "SM", "MED", "LG", "XL", "2XLarge", "3XLarge");
 Select = new Array("--")
 
 var _ddlType = document.getElementById("ddlType")
