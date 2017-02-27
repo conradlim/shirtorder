@@ -199,7 +199,10 @@
         $.ajax({
             url: "https://formspree.io/conradlimphoto@gmail.com",
             method: "POST",
-            data: shirtCart,
+            data: {
+                ShirtStyle: shirtCart.id,
+                ShirtColor: shirtCart.color
+            },
             //data: { message: "hello!" },
             dataType: "json"
         });
