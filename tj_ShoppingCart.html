@@ -87,13 +87,11 @@
         </div>
         <div id="btnDiv" style="margin:15px auto;text-align:center">
 
-            <button id="btnClear" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> &nbsp;
-            <button id="btnSubmit" onclick="submitCall()" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>
-
+            <button id="btnSubmit" onclick="submitCall()" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
+            <button id="btnClear" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> 
         </div>
 
         <div id="orderForm" style="display:block;margin-top:10px">
-
         </div>
 
     </form>
@@ -111,8 +109,6 @@
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
 
         }
-
-
         function showCartitems() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
             alternateCart = JSON.parse(localStorage.getItem("AlternateItems"))
@@ -127,7 +123,6 @@
             header[3] = "SIZE"
             header[4] = "TYPE"
             header[5] = "M/W"
-            //    header[6] = "QUANTITY"
 
             var html = "<table id='itemsInCart' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
             var insertString = ""
@@ -140,14 +135,14 @@
             for (var i = 0; i < shirtCart.length; i++) {
                 html += "<tr>";
                 html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' name='Shirt Order: ' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
-                html += "<td>" + shirtCart[i].id + " - " + shirtCart[i].name + "</td>";
+                html += "<td>" + shirtCart[i].id + "-" + shirtCart[i].name + "</td>";
                 html += "<td>" + shirtCart[i].color + "</td>";
                 html += "<td>" + shirtCart[i].size + "</td>";
                 html += "<td>" + shirtCart[i].type + "</td>";
-                html += "<td>" + shirtCart[i].gender + "</td>"
-                //    html += "<td>" + shirtCart[i].count + "</td>";
-
+                html += "<td>" + shirtCart[i].gender + "</td>"               
                 html += "</tr>";
+
+
 
             }
             html += ""
@@ -181,11 +176,7 @@
             } else {
                 tableDivTwo.innerHTML = "nothing"
             }
-
-
         }
-
-
         showCartitems()
 
         function submitCall() {
@@ -198,9 +189,8 @@
                     Email: document.getElementById('form-email').value,
                     _subject: document.getElementById('form-subject').value,
                     Cart: document.getElementById('tblDiv').innerText,
-                    NOTICE: "Alternate Shirts Have an 'A' By Style ID",
+                    NOTICE: "Alternate Shirts Labeled By 'A'",
                     Alternate_Cart: document.getElementById('tblAlternateDiv').innerText,
-                    cartOO: showCartitems(),
                 },
                 dataType: "json"
             });
