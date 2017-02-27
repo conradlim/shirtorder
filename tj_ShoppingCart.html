@@ -203,8 +203,9 @@
                 Name: document.getElementById('form-name').value,
                 Office: document.getElementById('form-office').value,
                 Email: document.getElementById('form-email').value,
-                Cart: document.getElementById('tblDiv').value,
-                message: "hello!"
+                Cart: document.getElementById('tblDiv').innerText,
+                message: "hello!",
+                
             },
             //data: { },
             dataType: "json"
