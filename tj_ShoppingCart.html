@@ -74,15 +74,15 @@
 
         <div style="text-align:center;">
             <h3>Name:</h3>
-            <input id="form-name" name="Name:">
+            <input id="form-name" >
             <h3>Email:</h3>
-            <input id="form-email" name="_replyto" type="email">
+            <input id="form-email" type="email">
 
             <h3>Specify WCO or ECO:</h3>
-            <select id="form-office" name="Company Name">
+            <select id="form-office">
                 <option>--</option>
-                <option name="WCO">West Coast Office</option>
-                <option name="ECO">East Coast Office</option>
+                <option value="WCO">West Coast Office</option>
+                <option  value="ECO">East Coast Office</option>
             </select>
         </div>
         <div id="btnDiv" style="margin:15px auto;text-align:center">
@@ -95,7 +95,7 @@
         <div id="orderForm" style="display:block;margin-top:10px">
 
         </div>
-
+        <input type="text" name="_gotcha" style="display:none" />
     </form>
 
     <div id="messageDiv" style="display:block;margin:75px auto;width:25%">
@@ -197,12 +197,16 @@
             $.ajax({
                 url: "https://formspree.io/conradlimphoto@gmail.com",
                 method: "POST",
+                headers: {          
+                    accepts: "application/json; charset=utf-8",
+                    "Content-Type": "application/json; charset=utf-8"
+                },    
                 data: {
                     Name: document.getElementById('form-name').value,
                     Office: document.getElementById('form-office').value,
                     Email: document.getElementById('form-email').value,
-                    Cart: document.getElementById('tblDiv').innerText,
-                    Cart_Two: "",
+                    Cart: document.getElementById('tblDiv').innerText,                   
+                    Alternate_Cart: document.getElementById('tblAlternateDiv'),
                     message: "hello!",
                 },
                 //data: { },
