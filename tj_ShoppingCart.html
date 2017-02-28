@@ -61,7 +61,7 @@
     <div style="margin-top:50px">
         <h1>Shopping Cart</h1>
     </div>
-    <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
+    <form id="gform" action="https://script.google.com/macros/s/AKfycbx6jWd9dquGhvsUKbZW7iYG79zq-lv5IYnb-7_hkT2khNlPusw/exec" method="POST">
         <input id="form-subject" for="Subject" value="New Hawaiian Shirt Order" type="hidden">
         <!--<input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/test-contact.html" type="hidden">-->
 
@@ -105,6 +105,10 @@
     <script src="js/jquery.js"></script>
     <script src="js/contactform.js"></script>
     <script type="text/javascript">
+        
+        //action="https://formspree.io/conradlimphoto@gmail.com"
+        
+        
         function loadCart() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
 
