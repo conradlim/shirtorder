@@ -62,7 +62,7 @@
         <h1>Shopping Cart</h1>
     </div>
     <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
-        <input id="form-subject" value="New Hawaiian Shirt Order" type="hidden">
+        <input id="form-subject" for="Subject" value="New Hawaiian Shirt Order" type="hidden">
         <!--<input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/test-contact.html" type="hidden">-->
 
         <div id="tblDiv" style="display:block;margin-top:10px;">
@@ -73,12 +73,12 @@
         </div>
 
         <div style="text-align:center;">
-            <h3>Name:</h3>
+            <h3 for="name">Name:</h3>
             <input id="form-name">
-            <h3>Email:</h3>
+            <h3 for="email">Email:</h3>
             <input id="form-email" type="email">
 
-            <h3>Specify WCO or ECO:</h3>
+            <h3 for="color">Specify WCO or ECO:</h3>
             <select id="form-office">
                 <option>--</option>
                 <option value="WCO">West Coast Office</option>
