@@ -74,12 +74,12 @@
 
         <div style="text-align:center;">
             <h3 for="name">Name:</h3>
-            <input id="form-name">
+            <input id="form-name" name="name">
             <h3 for="email">Email:</h3>
-            <input id="form-email" type="email">
+            <input id="form-email" name="email" type="email">
 
             <h3 for="color">Specify WCO or ECO:</h3>
-            <select id="form-office">
+            <select name="color" id="form-office">
                 <option>--</option>
                 <option value="WCO">West Coast Office</option>
                 <option value="ECO">East Coast Office</option>
@@ -124,7 +124,7 @@
             header[4] = "TYPE"
             header[5] = "M/W"
 
-            var html = "<table id='itemsInCart' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
+            var html = "<table id='itemsInCart' name='message' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
             var insertString = ""
 
             for (var i = 0; i < header.length; i++) {
@@ -139,7 +139,7 @@
                 html += "<td>" + shirtCart[i].color + "</td>";
                 html += "<td>" + shirtCart[i].size + "</td>";
                 html += "<td>" + shirtCart[i].type + "</td>";
-                html += "<td>" + shirtCart[i].gender + "</br></td>"               
+                html += "<td>" + shirtCart[i].gender + "</td>"               
                 html += "</tr>";
 
 
