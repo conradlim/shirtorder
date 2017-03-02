@@ -24,7 +24,9 @@ window.onload = function () {
             if (cartItems[0].type.length > 0) {
                 console.log(cartItems[0].type)
                 var shirtType = cartItems[0].type
+                _ddlType.text = shirtType
                 _ddlType.value = shirtType
+               
                 _ddlType.disabled = 'disabled'
                 _ddlType.style.backgroundColor = "lightgray"
                 populateSelectOnLoad();
