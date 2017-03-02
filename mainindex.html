@@ -39,64 +39,12 @@
     <![endif]-->
 </head>
 <body>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide" style="margin-top:-55px">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" id="carousel">
-            <div class="item active">
-                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/banner_07.jpeg');"></div>
-                <div class="carousel-caption">
-                    <h2></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_5.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_3.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2></h2>
-                </div>
-            </div>
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
-    <div class="container">
-        <div id="countDiv" style="margin-left:950px;margin-top:15px;">
-            <a href="index.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
-            <label style="font-weight:bold;margin-left:20px ">Cart Count: </label>&nbsp;
-            <a href="tj_ShoppingCart.html">
-                <span id="countContainer" style="margin-left:3px;padding:3px 4px;background-color:darkred;border:1px solid darkred;border-radius:25px;">
-
-                    <span id="showCount" style="color:#fff;font-weight:bold;margin:3px 5px; "></span>
-
-                </span>
-            </a>
-        </div>
-
-    </div>
-
-    <!-- Page Content -->
-    <div class="container">
-        <table style="border:1px dotted gray; width:100%">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <table style="border:1px dotted gray;margin-top:29px;margin-bottom:3px;width:100%;background-color:darkred;">
             <tr>
                 <td>
-
-                    <h3 class="page-header" style="color:black;">**OPTIONAL**:<br /><br /> If you don't wish to select your own shirts, we can randomly select the 7 shirts for you.  Just fill in the form in the link below:</h3>
-
-
-                    <div id="randShirtFrm" style="display:none;text-align:center">
+                    <h3 style="color:white;padding:0px;margin-bottom:-5px;text-align:center"> If you don't wish to select your own shirts, we can randomly select the 7 shirts for you.  Just fill in the form in the link below:</h3>
+                    <div id="randShirtFrm" style="display:none;text-align:center;background-color:white;">
                         <form action="//formspree.io/pcuriel@traderjoes.com" method="POST">
 
                             <input name="_subject" value="I Choose Random Shirts" type="hidden">
@@ -132,13 +80,116 @@
             </tr>
             <tr>
                 <td>
-                    <div class="ranDiv" style="text-align:center;display:block;margin-top:-30px">
-                        <h3>  <a href="javascript:toggleDiv('randShirtFrm');">RANDOM SHIRT FORM</a></h3>
+                    <div class="ranDiv" style="text-align:center;display:block;margin-top:-40px;">
+                        <h3>  <a id="ranToggle" href="javascript:toggleDiv('randShirtFrm');">RANDOM SHIRT FORM</a></h3>
                     </div>
                 </td>
             </tr>
-
         </table>
+    </nav>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <img id="logoTj" src="photos/tj_logo_b.png">
+                </div>
+            </div>
+            <div id="countDiv" style="margin-left:950px;margin-top:15px;">
+                <a href="index.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
+                <label style="font-weight:bold;font-size:15px;margin-left:20px" class="glyphicon glyphicon-shopping-cart"></label>&nbsp;
+                <a href="tj_ShoppingCart.html">
+                    <span id="countContainer" style="margin-left:-6px;padding:3px 3px;background-color:darkred;border:1px solid darkred;border-radius:25px;">
+                        <span id="showCount" style="color:#fff;font-weight:bold;margin:3px 5px; "></span>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" id="carousel">
+            <div class="item active">
+                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/banner_07.jpeg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_5.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_3.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!--<table style="border:1px dotted gray;margin-top:-5px;width:100%;background-color:darkred;">
+            <tr>
+                <td>
+                    <h3  style="color:white;padding:0px;margin-top:0px;"> If you don't wish to select your own shirts, we can randomly select the 7 shirts for you.  Just fill in the form in the link below:</h3>
+                    <div id="randShirtFrm" style="display:none;text-align:center;background-color:white;">
+                        <form action="//formspree.io/pcuriel@traderjoes.com" method="POST">
+
+                            <input name="_subject" value="I Choose Random Shirts" type="hidden">
+
+                            <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/email-received.html" type="hidden">
+
+                            <h3 style="text-align:center">Full Name:</h3>
+                            <input name="Name:" id="_name" required type="text">
+                            <h3 style="text-align:center">Email:</h3>
+                            <input name="Email" id="_email" required type="email">
+                            <h3 name="Gender" style="text-align:center">Choose Fit:</h3>
+                            <select id="ddlFit" onchange="return changeType();">
+                                <option name="Select">Select</option>
+                                <option data-fit="Mens">Mens</option>
+                                <option data-fit="Womens">Womens</option>
+                            </select>
+                            <h3 name="StyleChoice:" style="text-align:center;" required>Style Choice:</h3>
+                            <select id="ddlStyle">
+                                <option>--</option>
+                            </select>
+                            <h3 name="Size:" style="text-align:center">Sizes Available:</h3>
+                            <select id="ddlSize">
+                                <option>--</option>
+                            </select>
+
+                            <br />
+                            <br />
+
+                            <button type="submit" class="btn btn-primary">Submit Order</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="ranDiv" style="text-align:center;display:block;margin-top:-40px;">
+                        <h3>  <a id="ranToggle" href="javascript:toggleDiv('randShirtFrm');">RANDOM SHIRT FORM</a></h3>
+                    </div>
+                </td>
+            </tr>
+        </table>-->
+
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
@@ -156,18 +207,21 @@
                 </a>
             </div>
             <div class="col-md-3">
+                <a href="hibiscus-garden-m.html">
+                    <div class="thumbtitle">Hibiscus Garden </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Garden-Black_.jpg" title="hibiscus garden">
+                </a>
+            </div>
+
+            <div class="col-md-3">
 
                 <a href="waikiki-batik-m.html">
                     <div class="thumbtitle">Waikiki Batik </div>
                     <img class="img-responsive img-portfolio img-hover" src="photos/productpage/waikiki_batik-Grey.jpg" title="Waikiki Batik">
                 </a>
             </div>
-            <div class="col-md-3">
-                <a href="tahitian-blocks-m.html">
-                    <div class="thumbtitle">Tahitian Blocks </div>
-                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tahitianBlocks_.jpg" title="tahitian blocks">
-                </a>
-            </div>
+
+
             <div class="col-md-3">
                 <a href="molokai-m.html">
                     <div class="thumbtitle">Molokai </div>
@@ -177,12 +231,15 @@
 
             <!--- Second Line for Shirt -->
 
+
             <div class="col-md-3">
-                <a href="hibiscus-garden-m.html">
-                    <div class="thumbtitle">Hibiscus Garden </div>
-                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Garden-Black_.jpg" title="hibiscus garden">
+                <a href="tahitian-blocks-m.html">
+                    <div class="thumbtitle">Tahitian Blocks </div>
+                    <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tahitianBlocks_.jpg" title="tahitian blocks">
                 </a>
             </div>
+
+
             <div class="col-md-3">
                 <a href="wild-tapa-m.html">
                     <div class="thumbtitle">Wild Tapa </div>
@@ -468,7 +525,7 @@
     </div>
     <!-- /.container -->
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
     <script src="js/contactform.js"></script>
     <script type="text/javascript">
         var _name = document.getElementById('_name')
@@ -500,12 +557,12 @@
 
         //         Populate Size List Based on Pullover/Button DDL Selection //
         //mens
-        Pullover = new Array("Pullover Sizes", "XS", "SM", "MED", "LG", "LG-Tall", "XL", "XL-Tall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
-        Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-Tall", "XL", "XL-Tall", "2XL", "2XLTall", "3XL", "3XLTall", "4XL", "5XL");
+        Pullover = new Array("Pullover Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XL-T", "3XL", "3XL-T", "4XL", "5XL");
+        Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XL-T", "3XL", "3XL-T", "4XL", "5XL");
 
         //womens
-        Pullovers = new Array("PulloverS Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
-        Buttons = new Array("ButtonS Sizes", "XS", "SM", "MED", "LG", "XL", "2XLarge", "3XLarge");
+        Pullovers = new Array("Pullovers Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
+        Buttons = new Array("Buttons Sizes", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL");
         Select = new Array("--")
 
 

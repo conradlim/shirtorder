@@ -43,11 +43,11 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <img src="photos/tj_logo_b.png">
+                    <img id="logoTj" style="width:70%;margin-top:10px" src="photos/tj_logo_b.png">
                 </div>
             </div>
             <div id="countDiv" style="margin-left:950px;margin-top:15px;">
-                <a href="mainindex.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
+                <a href="index.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
                 <label style="font-weight:bold;font-size:15px;margin-left:20px" class="glyphicon glyphicon-shopping-cart"></label>&nbsp;
                 <a href="tj_ShoppingCart.html">
                     <span id="countContainer" style="margin-left:-6px;padding:3px 3px;background-color:darkred;border:1px solid darkred;border-radius:25px;">
@@ -55,40 +55,42 @@
                     </span>
                 </a>
             </div>
-
+           
         </div>
+        <hr />
     </nav>
-    <div style="margin-top:50px">
+    
+    <div style="margin-top:85px">
         <h1>Shopping Cart</h1>
     </div>
-    <form id="gform" action="https://script.google.com/macros/s/AKfycbx6jWd9dquGhvsUKbZW7iYG79zq-lv5IYnb-7_hkT2khNlPusw/exec" method="POST">
-        <input id="form-subject" for="Subject" value="New Hawaiian Shirt Order" type="hidden">
+    <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
+        <input id="form-subject" value="New Hawaiian Shirt Order" type="hidden">
         <!--<input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/test-contact.html" type="hidden">-->
 
         <div id="tblDiv" style="display:block;margin-top:10px;">
         </div>
 
-        <h3 style="margin-top:50px;text-align:center;margin-left:-745px">Alternative Choices</h3>
+        <h3 style="margin-top:50px;text-align:center;margin-left:-745px" id="altLabel">Alternative Choices</h3>
         <div id="tblAlternateDiv" style="display:block;margin-top:10px;">
         </div>
 
         <div style="text-align:center;">
-            <h3 for="name">Name:</h3>
-            <input id="form-name" name="name">
-            <h3 for="email">Email:</h3>
-            <input id="form-email" name="email" type="email">
+            <h3>Name:</h3>
+            <input id="form-name" required>
+            <h3>Email:</h3>
+            <input id="form-email" type="email" required>
 
-            <h3 for="color">Specify WCO or ECO:</h3>
-            <select name="color" id="form-office">
+            <h3>Specify WCO or ECO:</h3>
+            <select id="form-office" required>
                 <option>--</option>
-                <option value="WCO">West Coast Office</option>
-                <option value="ECO">East Coast Office</option>
+                <option value="West Coast Office">West Coast Office</option>
+                <option value="East Coast Office">East Coast Office</option>
             </select>
         </div>
         <div id="btnDiv" style="margin:15px auto;text-align:center">
 
-            <button id="btnSubmit" type="button" onclick="submitCall()" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
-            <button id="btnClear" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> 
+            <button id="btnSubmit" class="btn btn-danger" type="button" onclick="submitCall()" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
+            <button id="btnClear" class="btn btn-default" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button> 
         </div>
 
         <div id="orderForm" style="display:block;margin-top:10px">
@@ -105,10 +107,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/contactform.js"></script>
     <script type="text/javascript">
-        
-        //action="https://formspree.io/conradlimphoto@gmail.com"
-        
-        
         function loadCart() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
 
@@ -128,68 +126,72 @@
             header[4] = "TYPE"
             header[5] = "M/W"
 
-            var html = "<table id='itemsInCart' name='message' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
+            var html = "<table id='itemsInCart' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
             var insertString = ""
-
-            for (var i = 0; i < header.length; i++) {
-                html += "<th style='padding:10px 50px'>"
-                html += header[i] + "</th>"
-
-            }
-            for (var i = 0; i < shirtCart.length; i++) {
-                html += "<tr>";
-                html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
-                html += "<td>" + shirtCart[i].id + "-" + shirtCart[i].name + "</td>";
-                html += "<td>" + shirtCart[i].color + "</td>";
-                html += "<td>" + shirtCart[i].size + "</td>";
-                html += "<td>" + shirtCart[i].type + "</td>";
-                html += "<td>" + shirtCart[i].gender + "</td>"               
-                html += "</tr>";
-
-
-
-            }
-            html += ""
-            html += "</table>";
-            tableDiv.innerHTML = html;
-
-            if (alternateCart.length >= 0) {
-                var tableDivTwo = document.getElementById("tblAlternateDiv")
-                var tableTwo = document.createElement("TABLE")
-                var tableBodyTwo = document.createElement('TBODY')
-                tableTwo.appendChild(tableBodyTwo)
-                var html = "<table id='itemsInCartTwo' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
-
+          
                 for (var i = 0; i < header.length; i++) {
                     html += "<th style='padding:10px 50px'>"
                     html += header[i] + "</th>"
+
                 }
-                for (var i = 0; i < alternateCart.length; i++) {
+
+                for (var i = 0; i < shirtCart.length; i++) {
                     html += "<tr>";
-                    html += "<td>" + "<button id='deleteItem' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeAlternateItem(this);' data-id='" + alternateCart[i].id + "' data-color='" + alternateCart[i].color + "'></button></td>";
-                    html += "<td>A" + alternateCart[i].id + "-" + alternateCart[i].name + "</td>";
-                    html += "<td>" + alternateCart[i].color + "</td>";
-                    html += "<td>" + alternateCart[i].size + "</td>";
-                    html += "<td>" + alternateCart[i].type + "</td>";
-                    html += "<td>" + alternateCart[i].gender + "</td>"
+                    html += "<td>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
+                    html += "<td>" + shirtCart[i].id + "-" + shirtCart[i].name + "</td>";
+                    html += "<td>" + shirtCart[i].color + "</td>";
+                    html += "<td>" + shirtCart[i].size + "</td>";
+                    html += "<td>" + shirtCart[i].type + "</td>";
+                    html += "<td>" + shirtCart[i].gender + "</td>"
                     html += "</tr>";
+
+
+
                 }
                 html += ""
                 html += "</table>";
-                tableDivTwo.innerHTML = html;
-            } else {
-                tableDivTwo.innerHTML = "nothing"
-            }
-        }
+                tableDiv.innerHTML = html;
+
+
+
+                if (alternateCart.length > 0) {
+                    var tableDivTwo = document.getElementById("tblAlternateDiv")
+                    var tableTwo = document.createElement("TABLE")
+                    var tableBodyTwo = document.createElement('TBODY')
+                    tableTwo.appendChild(tableBodyTwo)
+                    var html = "<table id='itemsInCartTwo' style='border:1px solid gray;border-collapse:collapse;text-align:center'>";
+
+                    for (var i = 0; i < header.length; i++) {
+                        html += "<th style='padding:10px 50px'>"
+                        html += header[i] + "</th>"
+                    }
+                    for (var i = 0; i < alternateCart.length; i++) {
+                        html += "<tr>";
+                        html += "<td>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeAlternateItem(this);' data-id='" + alternateCart[i].id + "' data-color='" + alternateCart[i].color + "'></button></td>";
+                        html += "<td>A" + alternateCart[i].id + "-" + alternateCart[i].name + "</td>";
+                        html += "<td>" + alternateCart[i].color + "</td>";
+                        html += "<td>" + alternateCart[i].size + "</td>";
+                        html += "<td>" + alternateCart[i].type + "</td>";
+                        html += "<td>" + alternateCart[i].gender + "</td>"
+                        html += "</tr>";
+                    }
+                    html += ""
+                    html += "</table>";
+                    tableDivTwo.innerHTML = html;
+                } else {
+                    var altLabel = document.getElementById('altLabel')
+                    altLabel.innerHTML = ''
+                }
+            } 
+     
         showCartitems()
 
         function submitCall() {
             $.ajax({
-              //  url:"https://script.google.com/macros/s/AKfycbx6jWd9dquGhvsUKbZW7iYG79zq-lv5IYnb-7_hkT2khNlPusw/exec",
                 url: "https://formspree.io/conradlimphoto@gmail.com",
                 method: "POST",
                 success: function () {
-                    window.location = "https://conradp04.github.io/testingShirt/mainindex"
+                    window.location = "https://conradp04.github.io/testingShirt/index"
                     clearCart()
                         console.log("Success")
                 },
