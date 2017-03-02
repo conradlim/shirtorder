@@ -358,8 +358,8 @@ function showCartitems() {
 
 //         Populate Size List Based on Pullover/Button DDL Selection //
 //mens
-Pullover = new Array("Pullover Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XLTall", "3XL", "3XL-T", "4XL", "5XL");
-Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XLTall", "3XL", "3XL-T", "4XL", "5XL");
+Pullover = new Array("Pullover Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XL-T", "3XL", "3XL-T", "4XL", "5XL");
+Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XL-T", "3XL", "3XL-T", "4XL", "5XL");
 
 //womens
 Pullovers = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
