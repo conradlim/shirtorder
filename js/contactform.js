@@ -21,11 +21,17 @@ window.onload = function () {
         if (cartItems == 0 || cartItems == null) {
             clearOnLoad()
         } else if (_ddlType != null) {
-            if (cartItems[0].type.length > 0) {
-                console.log(cartItems[0].type)
-                var shirtType = cartItems[0].type
-                _ddlType.text = shirtType
-                _ddlType.value = shirtType
+            if (cartItems[0].type.length > 0) {               
+               var shirtType = cartItems[0].type
+                //  _ddlType.text = shirtType
+               for (var i = 0; i < _ddlType.options.length; i++) {
+                   if (_ddlType.options[i].text == shirtType) {
+                       _ddlType.selectedIndex = i;
+                       break;
+                   }
+                    
+                }
+                //_ddlType.value = shirtType
                
                 _ddlType.disabled = 'disabled'
                 _ddlType.style.backgroundColor = "lightgray"
