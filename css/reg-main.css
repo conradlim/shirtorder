@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
-html,h1, h2,h4,ol{
+
+html, h1, h2, h4, ol {
     margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
     font-family: 'fredericka the great';
+}
+
+img#logoTj {
+    width: 70%;
+    margin-top: 5px;
+}
+
+header#myCarousel {
+    height: 60%;
 }
 
 #carousel {
@@ -14,153 +24,218 @@ html,h1, h2,h4,ol{
     width: 100%;
     overflow: hidden;
     display: block;
-    margin-left: 0px;
+    margin: 0px auto;
 }
+
 .carousel-inner {
     position: relative;
-    width: 75%;    
+    width: 75%;
     overflow: hidden;
     display: block;
     margin-left: 105px;
 }
-tr, td{
 
-		width: 150px;
-		padding:15px;
-		font-family:Roboto;
-	}
-	#itemsInCart tr:nth-child(even){
-		background-color:#eee;
-	}
-	table
-	{	
+tr, td {
+    width: 150px;
+    padding: 15px;
+    font-family: Roboto;
+}
 
-		margin:15px auto 15px auto;
-	}
-	.btn{
-		border-radius: 5px;
-        border:1px solid darkgray;
-        font-size:14px;
-		font-weight: bold;
-		color: gray;
-		background-color:whitesmoke;
-  
-	}
-    .btn:hover{
-        color:darkgray;
-        background-color:#1e1d1d;
+#itemsInCart tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table {
+    margin: 15px auto 15px auto;
+}
+
+.btn {
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    background-color: whitesmoke;
+}
+
+#btnSubmit {
+    color: #fff;
+    background-color: darkred;
+}
+
+    #btnSubmit:hover {
+        color: #fff;
+        background-color: darkred;
+        box-shadow: 0px 2px 15px 1px #51514C;
     }
-.container{
-    margin-top:10px
-}
-select{
-    width:110px;
+
+.btn:hover {
+    color: #fff;
+    background-color: darkred;
+    box-shadow: 0px 2px 5px 1px #51514C;
 }
 
-body{    
-    margin:0px auto ;
-    clear:both;
-    font-family:'Roboto';
-    background-color:#fff;
+#btnClear:hover {
+    color: white;
+    background-color: darkgray;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+select {
+    width: 163px;
+}
+
+body {
+    margin: 0px auto;
+    clear: both;
+    font-family: 'Roboto';
+    background-color: #fff;
     /*background-color:#fafaf5;*/
-
 }
 
-.postContainer{
-     width: 1200px;
-    margin:0px auto;    
-    
+.postContainer {
+    width: 1200px;
+    margin: 0px auto;
 }
-h1{ 
-    
+
+h1 {
     font-family: 'fredericka the great';
-    color:#dc3d24;
+    color: #dc3d24;
     padding: 1px 0px;
     text-align: center;
-    font-size: 45px;
-    
-    
+    font-size: 35px;
 }
-h2{
+
+h2 {
     font-family: 'fredericka the great';
-    color:#fff;
+    color: #fff;
     padding: 15px 0px 0px 0px;
     text-align: center;
-    font-size: 45px;
-    margin: 10px 150px 4px 150px
+    font-size: 35px;
+    margin: 10px 150px 4px 150px;
 }
 
-h3{
+h3 {
     font-family: 'Roboto';
-    color:#dc3d24;
-    font-size:20px;
-    
-}
-#btnDiv {
-    margin-top:15px;
+    color: #dc3d24;
+    font-size: 20px;
 }
 
-li{
+#btnDiv {
+    margin-top: 15px;
+}
+
+li {
     font-size: 28px;
 }
 
-div ul li{
+div ul li {
     font-size: 18px;
-     
-}
-a{
-    font-family:'Roboto';
-    color:#777;
-
-}
-p{
-    font-size:14px;        
-}
-em{
-    color:#dc3d24;
 }
 
-.orderform{
+a {
+    font-family: 'Roboto';
+    color: #777;
+}
+
+p {
+    font-size: 14px;
+}
+
+em {
+    color: #dc3d24;
+}
+
+.orderform {
     text-align: center;
-    font-size:40px;
+    font-size: 40px;
     font-family: "fredericka the great";
-    color:#dc3d24;
+    color: #dc3d24;
 }
 
-.thumbtitle{
-	text-align:center;
-	margin-top:10px;
-	font-weight:bold;
+.thumbtitle {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 #suwrapper .sutext {
-position:relative;
-bottom:100px;
-left:0px;
-visibility:hidden;
-background-color:rgba(255,255,255,0.8);
+    position: relative;
+    bottom: 100px;
+    left: 0px;
+    visibility: hidden;
+    background-color: rgba(255,255,255,0.8);
 }
 
 #suwrapper:hover .sutext {
-visibility:visible;
+    visibility: visible;
 }
 
-.sutext{
+.sutext {
     font-family: Arial;
     text-align: center;
-    color:#51514C;
-    font-weight:bold;
-    font-size:20px;
+    color: #51514C;
+    font-weight: bold;
+    font-size: 20px;
 }
 
- 
-#sample {border:1px dotted #666;text-align:center;}
-#sample h2 {text-align:center;}
-#sample p {text-align:center;padding:.4em 3em 0em;}
-#my-form #align {box-sizing:border-box;width:96%;text-align:center;margin:0 2%;padding:2em;}
-#my-form .data-entry {padding:.5em 8%;}
-#my-form textarea {padding:.1em 8%;}
-#my-form p {margin:.1em 0;text-align:center;}
-#my-form select {margin-bottom:1em;}
-#my-form select {margin-bottom:1em;font-size:95%;padding:.1em .5em;}
-#my-form .button {width:80px;height:30px;font-size:110%;margin:.4em;}
+a#ranToggle {
+    color: white;
+    background-color: darkred;
+    text-decoration: underline;
+}
+
+#sample {
+    border: 1px dotted #666;
+    text-align: center;
+}
+
+    #sample h2 {
+        text-align: center;
+    }
+
+    #sample p {
+        text-align: center;
+        padding: .4em 3em 0em;
+    }
+
+#my-form #align {
+    box-sizing: border-box;
+    width: 96%;
+    text-align: center;
+    margin: 0 2%;
+    padding: 2em;
+}
+
+#my-form .data-entry {
+    padding: .5em 8%;
+}
+
+#my-form textarea {
+    padding: .1em 8%;
+}
+
+#my-form p {
+    margin: .1em 0;
+    text-align: center;
+}
+
+#my-form select {
+    margin-bottom: 1em;
+}
+
+#my-form select {
+    margin-bottom: 1em;
+    font-size: 95%;
+    padding: .1em .5em;
+}
+
+#my-form .button {
+    width: 80px;
+    height: 30px;
+    font-size: 110%;
+    margin: .4em;
+}
