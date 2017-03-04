@@ -134,7 +134,7 @@
             //Initial Cart
             for (var i = 0; i < shirtCart.length; i++) {
                 html += "<tr>";
-                html += "<td style='padding-bottom:5px;'>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
+                html += "<td>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
                 html += "<td>" + shirtCart[i].id + "-" + shirtCart[i].name + "</td>";
                 html += "<td>" + shirtCart[i].color + "</td>";
                 html += "<td>" + shirtCart[i].size + "</td>";
@@ -159,8 +159,8 @@
                     html += header[i] + "</th>"
                 }
                 for (var i = 0; i < alternateCart.length; i++) {
-                    html += "<tr style='padding-bottom:5px'>";
-                    html += "<td style='padding-bottom:5px;'>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeAlternateItem(this);' data-id='" + alternateCart[i].id + "' data-color='" + alternateCart[i].color + "'></button></td>";
+                    html += "<tr>";
+                    html += "<td>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' href='#' onclick='return removeAlternateItem(this);' data-id='" + alternateCart[i].id + "' data-color='" + alternateCart[i].color + "'></button></td>";
                     html += "<td>A" + alternateCart[i].id + "-" + alternateCart[i].name + "</td>";
                     html += "<td>" + alternateCart[i].color + "</td>";
                     html += "<td>" + alternateCart[i].size + "</td>";
