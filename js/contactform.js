@@ -21,21 +21,27 @@ window.onload = function () {
         if (cartItems == 0 || cartItems == null) {
             clearOnLoad()
         } else if (_ddlType != null) {
-            if (cartItems[0].type.length > 0) {               
-               var shirtType = cartItems[0].type
-                //  _ddlType.text = shirtType
-               for (var i = 0; i < _ddlType.options.length; i++) {
-                   if (_ddlType.options[i].text == shirtType) {
-                       _ddlType.selectedIndex = i;
-                       break;
-                   }
-                    
+            if (cartItems[0].type.length > 0) {
+                var shirtType = cartItems[0].type
+                var shirtS = cartItems[0].size
+                for (var i = 0; i < _ddlType.options.length; i++) {
+                    if (_ddlType.options[i].text == shirtType) {
+                        _ddlType.selectedIndex = i;
+                        populateSelectOnLoad();
+                        break;
+                    }
                 }
-                //_ddlType.value = shirtType
-               
+                for (var j = 0; j < _ddlSize.options.length; j++) {
+                    if (_ddlSize.options[j].text == shirtS) {
+                        _ddlSize.selectedIndex = j;
+                        break;
+                    }
+                }
                 _ddlType.disabled = 'disabled'
                 _ddlType.style.backgroundColor = "lightgray"
-                populateSelectOnLoad();
+                _ddlSize.disabled = 'disabled'
+                _ddlSize.style.backgroundColor = 'lightgray'
+
             }
         }
     }
@@ -164,6 +170,8 @@ function addItemToCart(ids) {
         var item = new ShirtItem(id, name, size, color, type, gender, count)
         _ddlType.disabled = 'disabled'
         _ddlType.style.backgroundColor = 'lightgray'
+        _ddlSize.disabled = 'disabled'
+        _ddlSize.style.backgroundColor = 'lightgray'
         shirtCart.push(item)
         cartAlert("")
         saveCart()
@@ -226,7 +234,6 @@ function clearOnLoad() {
     saveCart()
     saveAlternateCart()
     cartCount()
-
 }
 
 //Clear ALL onClick
@@ -243,9 +250,7 @@ function cartCount() {
     var totalCount = 0
     for (var i in shirtCart) {
         totalCount += shirtCart[i].count
-
     }
-    //return "Cart Total: " +totalCount
     countDiv.innerHTML = totalCount
     return totalCount
 }
@@ -279,7 +284,6 @@ function saveCart() {
 
     console.log("Cart Saved")
 }
-
 function saveAlternateCart() {
     localStorage.setItem("AlternateItems", JSON.stringify(alternateCart))
     console.log("Alternate Saved")
@@ -299,7 +303,6 @@ function loadAlternate() {
 function showCartitems() {
     shirtCart = JSON.parse(localStorage.getItem("CartItems"))
     alternateCart = JSON.parse(localStorage.getItem("AlternateItems"))
-    console.log(alternateCart)
 
     count = 1
     var tableDiv = document.getElementById("tblDiv")
@@ -371,7 +374,7 @@ Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T"
 
 //womens
 Pullovers = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
-Buttons = new Array("Button Sizes", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL");
+Buttons = new Array("Button Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL");
 Select = new Array("--")
 
 var _ddlType = document.getElementById("ddlType")
@@ -388,8 +391,6 @@ function populateSelect() {
         $('#ddlSize').append('<option value="' + t + '">' + t + '</option>');
     });
 };
-
-
 function populateSelectOnLoad() {
     shirtStyle = shirtCart[0].type
     $('#ddlSize').html('');

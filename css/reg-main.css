@@ -26,18 +26,22 @@ header#myCarousel {
     display: block;
     margin: 0px auto;
 }
+span.glyphicon.glyphicon-chevron-right, span.glyphicon.glyphicon-chevron-left  {
+    font-size:30px
+}
 
 .carousel-inner {
     position: relative;
-    width: 75%;
+    width: 80%;
     overflow: hidden;
     display: block;
-    margin-left: 105px;
+    /*margin-left: 105px;*/
+    margin:0px auto;
 }
 
 tr, td {
     width: 150px;
-    padding: 15px;
+    padding-top: 14px;
     font-family: Roboto;
 }
 
