@@ -9,7 +9,9 @@ html, h1, h2, h4, ol {
     font: inherit;
     font-family: 'fredericka the great';
 }
-
+#itemsInCart td{
+    padding-bottom:15px;
+}
 img#logoTj {
     width: 70%;
     margin-top: 5px;
