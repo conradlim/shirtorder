@@ -1,15 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/tjfav.png">
-    <title>Waikiki Batik - Trader Joe's Hawaiian Shirt </title>
+    <title>Petro Wave -Trader Joe's Hawaiian Shirt </title>
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
@@ -32,7 +31,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <img src="photos/tj_logo_b.png">
+                    <img id="logoTj" src="photos/tj_logo_b.png">
                 </div>
             </div>
             <div id="countDiv" style="margin-left:950px;margin-top:15px;">
@@ -53,47 +52,49 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-
                 <h1 class="page-header">
-                    Waikiki Batik(Cotton)
-                    <small>Style #1742</small>
+                    Petro Wave (Cotton)
+                    <small>Style #17205</small>
                 </h1>
-       
             </div>
         </div>
+        <!-- Portfolio Item Row -->
         <div class="row">
             <div class="col-md-8">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
                     <div class="carousel-inner" id="suwrapper">
                         <div class="item active">
-                            <img class="img-responsive" src="photos/productpage/waikiki-batik-1.jpg" title="">
+                            <img class="img-responsive" src="photos/productpage/petro-wave-1.jpg" title="Charcoal">
+                            <p class="sutext">Charcoal</p>
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/petro-wave-2.jpg" title="Indigo">
+                            <p class="sutext">Indigo</p>
+                        </div>                                            
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/petro-wave-3.jpg" title="Olive">
+                            <p class="sutext">Olive</p>
+                        </div> 
+                        <div class="item">
+                            <img class="img-responsive" src="photos/productpage/petro-wave-4.jpg" title="Blue">
                             <p class="sutext">Blue</p>
                         </div>
 
-                        <div class="item">
-                            <img class="img-responsive" src="photos/productpage/waikiki-batik-2.jpg" title="">
-                            <p class="sutext">Grey</p>
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="photos/productpage/waikiki-batik-3.jpg" title="">
-                            <p class="sutext">Khaki</p>
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="photos/productpage/waikiki-batik-4.jpg" title="">
-                            <p class="sutext">Olive</p>
-                        </div>
-                   
                     </div>
+
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" style="font-size:30px"></span>
+                        <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" style="font-size:30px"></span>
+                        <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
             </div>
 
+            <!--Changes Made-->
             <div class="col-md-4" style="display:block;margin:auto">
 
                 <h3>Styles Available:</h3>
@@ -106,25 +107,24 @@
 
                 <h3>Colors Available</h3>
                 <select id="ddlStyle" class="ddList" name="Color">
-                    <option value="Select">Select Color  </option>
-                    <option data-id="1742" data-style="Waikiki Batik" data-gender="Mens" data-color="Blue" data-count=1> Blue</option>
-                    <option data-id="1742" data-style="Waikiki Batik" data-gender="Mens" data-color="Grey" data-count=1>Grey</option>
-                    <option data-id="1742" data-style="Waikiki Batik" data-gender="Mens" data-color="Khaki" data-count=1>Khaki</option>
-                    <option data-id="1742" data-style="Waikiki Batik" data-gender="Mens" data-color="Olive" data-count=1>Olive</option>                    
+                    <option value="Select">Select Color</option>
+                    <option data-id="17205" data-style="Petro Wave" data-gender="Mens" data-color="Charcl" data-count=1>Charcoal</option>
+                    <option data-id="17205" data-style="Petro Wave" data-gender="Mens" data-color="Indigo" data-count=1>Indigo</option>
+                    <option data-id="17205" data-style="Petro Wave" data-gender="Mens" data-color="Olive" data-count=1>Olive</option>
+                    <option data-id="17205" data-style="Petro Wave" data-gender="Mens" data-color="Blue" data-count=1>Blue</option>
+                  
                 </select>
+
                 <h3>Sizes Available:</h3>
                 <select id="ddlSize" class="ddList" name="Size"></select>
-
                 <div id="btnDiv">
                     <p>
                         Hover the cursor over the image to view the color.
-                    </p> 
-                    <p>
-                        **Mens shirt styles are "reversed" giving it a faded look
-                    </p> 
-                    <button id="btnAlternate" onclick="checkDropList();" class="btn" style="float:right;margin:30px auto 15px auto;" disabled>ADD ALTERNATE</button>                 
+                    </p>
+                    <p style="margin-top:-5px;">**Mens shirt styles are "reversed" giving it a faded look.</p>
+                    <button id="btnAlternate" onclick="checkDropList();" class="btn" style="float:right;margin:30px auto 15px auto;" disabled>ADD ALTERNATE</button>
                     <button id="btnAdd" onclick="checkDropList();" class="btn" style="float:right;display:inline-block;width:100px;margin:30px 5px 15px auto;">ADD</button> &nbsp;
-                    
+
                 </div>
                 <div id="messageDiv" style="display:block;margin-top:55px;border-radius:5px;">
                     <span id="cartMessages" style="text-align:center;display:block;font-family:roboto;font-size:20px;color:darkred;padding:5px"></span>
@@ -137,11 +137,8 @@
     <hr>
 
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/contactform.js"></script>
-   
-
-
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

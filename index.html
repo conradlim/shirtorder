@@ -25,11 +25,9 @@
     <!-- script to toggle email form -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript">
-
         function toggleDiv(divId) {
             $("#" + divId).toggle();
         }
-
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,45 +41,43 @@
         <table style="border:1px dotted gray;margin-top:29px;margin-bottom:3px;width:100%;background-color:darkred;">
             <tr>
                 <td>
-                    <h3 style="color:white;padding:0px;margin-bottom:-5px;text-align:center"> If you don't wish to select your own shirts, we can ship an assortment set of shirts for you.  Just fill in the form below:</h3>
+                    <h3 style="color:white;padding:0px;margin-bottom:-5px;text-align:center"> If you don't wish to select your own shirts, we can ship an assortment set for you.  Just fill in the form below:</h3>
 
                     <div id="randShirtFrm" style="display:none;text-align:center;background-color:white;">
-                        <form action="//formspree.io/pcuriel@traderjoes.com" method="POST">
+                        <form action="//formspree.io/clim@traderjoes.com" method="POST">
 
                             <input name="_subject" value="I Choose Random Shirts" type="hidden">
 
-                            <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/email-received.html" type="hidden">
+                            <input name="_next" value="http://conradp04.github.io/testingShirt/thank-you-pg.html" type="hidden">
 
                             <h3 style="text-align:center">Full Name:</h3>
-                            <input name="Name:" id="_name" required type="text">
+                            <input name="Name:" id="_name" class="form-field" type="text">
                             <h3 style="text-align:center">Email:</h3>
-                            <input name="Email" id="_email" required type="email">
+                            <input name="Email" id="_email" class="form-field" type="email">
                             <h3 name="Gender" style="text-align:center">Choose Fit:</h3>
-                            <select id="ddlFit" onchange="return changeType();">
+                            <select id="ddlFit" class="ddlReq" onchange="return changeType();">
                                 <option name="Select">Select</option>
                                 <option data-fit="Mens">Mens</option>
                                 <option data-fit="Womens">Womens</option>
                             </select>
                             <h3 name="StyleChoice:" style="text-align:center;" required>Style Choice:</h3>
-                            <select id="ddlStyle">
+                            <select id="ddlStyle" class="ddlReq">
                                 <option>--</option>
                             </select>
                             <h3 name="Size:" style="text-align:center">Sizes Available:</h3>
-                            <select id="ddlSize">
+                            <select id="ddlSize" class="ddlReq">
                                 <option>--</option>
                             </select>
-
                             <br />
                             <br />
-
-                            <button type="submit" class="btn btn-primary">Submit Order</button>
+                            <button type="button" onclick="validateRandOrder()" value="send" class="btn btn-primary">Submit Order</button>
                         </form>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div class="ranDiv" style="text-align:center;display:block;margin-top:-40px;">
+                    <div class="ranDiv" style="text-align:center;display:block;margin-top:-28px;">
                         <h3>  <a id="ranToggle" href="javascript:toggleDiv('randShirtFrm');">RANDOM SHIRT FORM</a></h3>
                     </div>
                 </td>
@@ -108,8 +104,6 @@
 
         </div>
     </nav>
-
-
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Wrapper for slides -->
@@ -219,7 +213,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="tapa-waikik-m.html">
+                    <a href="tapa-waikiki-m.html">
                         <div class="thumbtitle">Tapa Waikiki</div>
                         <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tapa-waikiki-2.jpg" title="Tapa Waikiki">
                     </a>
@@ -423,7 +417,25 @@
         var _style = document.getElementById('ddlStyle')
         var _size = document.getElementById('ddlSize')
 
+        var _rField = document.getElementsByClassName('form-field')
+        var _ddlField = document.getElementsByClassName('ddlReq')
 
+        function validateRandOrder() {
+            for (var i = 0; i < _rField.length; i++) {
+                if (_rField[i].value == "") {
+                    _rField[i].style.border = '1px solid darkred'
+                    _rField[i].focus()
+                    alert(_rField[i].name + " Needed")
+                    return false
+                }
+            }
+            for (var j = 0; j < _ddlField.length; j++) {
+                if (_ddlField[j].selectedIndex == 0) {
+                    _ddlField[j].style.border = '1px solid darkred'
+                }
+            }
+            return true
+        }
 
         function changeType() {
             $('#ddlStyle').html('')
@@ -451,7 +463,7 @@
 
         //womens
         Pullovers = new Array("Pullovers Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
-        Buttons = new Array("Buttons Sizes", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL");
+        Buttons = new Array("Buttons Sizes","XXS", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL");
         Select = new Array("--")
 
 

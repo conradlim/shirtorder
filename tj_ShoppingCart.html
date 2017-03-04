@@ -65,8 +65,6 @@
     </div>
     <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
         <input id="form-subject" value="New Hawaiian Shirt Order" type="hidden">
-        <!--<input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/test-contact.html" type="hidden">-->
-
         <div id="tblDiv" style="display:block;margin-top:10px;">
         </div>
 
@@ -109,10 +107,10 @@
     <script type="text/javascript">
         function loadCart() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
-
         }
+
         function showCartitems() {
-           
+
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
             alternateCart = JSON.parse(localStorage.getItem("AlternateItems"))
 
@@ -132,9 +130,7 @@
             for (var i = 0; i < header.length; i++) {
                 html += "<th style='padding:10px 50px'>"
                 html += header[i] + "</th>"
-
             }
-
             //Initial Cart
             for (var i = 0; i < shirtCart.length; i++) {
                 html += "<tr>";
@@ -175,36 +171,37 @@
                 html += ""
                 html += "</table>";
                 tableDivTwo.innerHTML = html;
-              } 
+            }
             else {
                 var altLabel = document.getElementById('altLabel')
                 altLabel.innerHTML = ''
-                tblAlternateDiv.innerHTML=''
+                tblAlternateDiv.innerHTML = ''
             }
         }
-        
+
 
         var _comp = document.getElementById('form-office');
         var _rField = document.getElementsByClassName('formField')
         var errorTxt = document.getElementById('messageDiv');
+
         function validateFrm() {
             if (shirtCart.length == 0) {
                 cartAlert('Please Add Items Before Submitting')
                 return false
             }
-                for (var i = 0; i < _rField.length; i++) {
-                    if (_rField[i].value == "") {
-                        _rField[i].style.border = '1px solid darkred'
-                        cartAlert('Fields Required')
-                        return false
-                    }
-                    if (_comp.selectedIndex == 0) {
-                        _comp.style.border = '1px solid darkred'
-                        cartAlert('Please Select Office')
-                        return false
-                    }
+            for (var i = 0; i < _rField.length; i++) {
+                if (_rField[i].value == "") {
+                    _rField[i].style.border = '1px solid darkred'
+                    cartAlert('Fields Required')
+                    return false
                 }
-            
+                if (_comp.selectedIndex == 0) {
+                    _comp.style.border = '1px solid darkred'
+                    cartAlert('Please Select Office')
+                    return false
+                }
+            }
+
             console.log("order submitted")
             submitCall()
         }
