@@ -44,34 +44,35 @@
                     <h3 style="color:white;padding:0px;margin-bottom:-5px;text-align:center"> If you don't wish to select your own shirts, we can ship an assortment set for you.  Just fill in the form below:</h3>
 
                     <div id="randShirtFrm" style="display:none;text-align:center;background-color:white;">
-                        <form action="//formspree.io/clim@traderjoes.com" method="POST">
+                        <form id="gForm" action="https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec" method="POST">
 
-                            <input name="_subject" value="I Choose Random Shirts" type="hidden">
+                            <input name="_subject" id="form-subject" value="Random Shirt Order Form" type="hidden">
 
                             <input name="_next" value="http://conradp04.github.io/testingShirt/thank-you-pg.html" type="hidden">
 
                             <h3 style="text-align:center">Full Name:</h3>
-                            <input name="Name:" id="_name" class="form-field" type="text">
+                            <input name="Name" id="_name" class="form-field" type="text">
                             <h3 style="text-align:center">Email:</h3>
                             <input name="Email" id="_email" class="form-field" type="email">
                             <h3 name="Gender" style="text-align:center">Choose Fit:</h3>
-                            <select id="ddlFit" class="ddlReq" onchange="return changeType();">
+                            <select id="ddlFit" name="Fit" class="ddlReq" onchange="return changeType();">
                                 <option name="Select">Select</option>
                                 <option data-fit="Mens">Mens</option>
                                 <option data-fit="Womens">Womens</option>
                             </select>
                             <h3 name="StyleChoice:" style="text-align:center;" required>Style Choice:</h3>
-                            <select id="ddlStyle" class="ddlReq">
+                            <select id="ddlStyle" name="Style" class="ddlReq">
                                 <option>--</option>
                             </select>
                             <h3 name="Size:" style="text-align:center">Sizes Available:</h3>
-                            <select id="ddlSize" class="ddlReq">
+                            <select id="ddlSize" name="Size" class="ddlReq">
                                 <option>--</option>
                             </select>
                             <br />
                             <br />
-                            <button type="button" onclick="validateRandOrder()" value="send" class="btn btn-primary">Submit Order</button>
+                            <button type="button" onclick="validateRandOrder()" value="Send" class="btn btn-primary">Submit Order</button>
                         </form>
+                       
                     </div>
                 </td>
             </tr>
@@ -345,42 +346,31 @@
 
             <!-- /.row -->
             <!--ORDER FORM -->
-
+            <hr />
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="well">
-                        <h1 class="page-header">
-                            Order Form
-                        </h1>
-                        <div>
-                            <div class="button">
-                                <a href="contact2.html" onclick="return mensorder('contact2.html')" class="btn btn-primary">MEN'S ORDER FORM</a>
-                                &nbsp;&nbsp;&nbsp;
+                                        
 
-                                <a href="contact2.html" onclick="return womensorder('contact.html')" class="btn btn-primary">WOMEN'S ORDER FORM</a>
-                            </div>
-                        </div>
-
-                        <h2 class="page-header" style="font-family:Roboto;"><small><strong>Questions? Please use this <a href="javascript:toggleDiv('myContent');">Form</a></strong></small></h2>
+                        <h2 class="page-header" style="font-family:Roboto;"><small><strong>Questions? Contact us through here: <a href="javascript:toggleDiv('myContent');">Form</a></strong></small></h2>
 
 
                         <div id="myContent" style="display:none;text-align:center">
-                            <form action="//formspree.io/pcuriel@traderjoes.com" method="POST">
+                            <form action="https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec" method="POST" id="gForm">
 
-                                <input name="_subject" value="Questions On Hawaiian Shirt Orders" type="hidden">
+                                <input id="qSubject" name="Subject" value="Questions On Hawaiian Shirt Orders" type="hidden">
 
                                 <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/email-received.html" type="hidden">
 
                                 <h3 style="text-align:center">Full Name:</h3>
-                                <input name="Name:" required="" type="text">
+                                <input id="qName" name="Name" required="" type="text">
                                 <h3 style="text-align:center">Email:</h3>
-                                <input name="Email" type="email">
+                                <input id="qEmail" name="Email" type="email">
 
 
                                 <h3 style="text-align:center">Questions:</h3>
-                                <textarea name="CM_Message:" id="comments2" placeholder="Type your question." rows="6" cols="60"></textarea><br />
+                                <textarea id="qMessage" name="CM_Message" placeholder="Type your question." rows="6" cols="60"></textarea><br />
 
-                                <button type="submit" class="btn btn-primary">Send Message</button>
+                                <button type="button" onclick="submitEmail()" class="btn btn-primary">Send Message</button>
                             </form>
                         </div>
 
@@ -405,7 +395,7 @@
 
             </footer>
         </div>
-    </div>
+
     <!-- /.container -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -426,7 +416,7 @@
                     _rField[i].style.border = '1px solid darkred'
                     _rField[i].focus()
                     alert(_rField[i].name + " Needed")
-                    return false
+                    
                 }
             }
             for (var j = 0; j < _ddlField.length; j++) {
@@ -434,7 +424,7 @@
                     _ddlField[j].style.border = '1px solid darkred'
                 }
             }
-            return true
+           submitCall()
         }
 
         function changeType() {
@@ -487,9 +477,57 @@
             }
         };
 
+        function submitCall() {
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec",
+                method: "POST",
+                success: function () {
+                    window.location = "thank-you-pg.html"
+                    clearCart()
+                    console.log("Success")
+                },
+                error: function () {
+                    console.log("FAIL")
+                },
+                data: {
+                    Name: document.getElementById('_name').value,                    
+                    Email: document.getElementById('_email').value,                    
+                    Subject: document.getElementById('form-subject').value,
+                    Fit: document.getElementById('ddlFit').value,
+                    Style: document.getElementById('ddlStyle').value,
+                    Size: document.getElementById('ddlSize').value
+                },
+                dataType: "json"
+            });
+        }
+
+        function submitEmail() {
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec",
+                method: "POST",
+                success: function () {
+                    window.location = "email-received.html"
+                    clearCart()
+                    console.log("EmailSuccess")
+                },
+                error: function () {
+                    console.log("FAIL")
+                },
+                data: {
+                    Name: document.getElementById('qName').value,
+                    Email: document.getElementById('qEmail').value,
+                    Subject: document.getElementById('qSubject').value,
+                    CM_Message: document.getElementById('qMessage').value,               
+                },
+                dataType: "json"
+            });
+
+        }
 
     </script>
-    <!-- Script to Activate the Carousel -->
+
+
+
     <script>
         //$('.carousel').carousel({
         //    interval: 10000 //changes the speed
