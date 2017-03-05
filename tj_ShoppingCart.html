@@ -72,18 +72,14 @@
         <h3 style="margin-top:50px;text-align:center;margin-left:-745px" id="altLabel">Alternative Choices</h3>
         <div id="tblAlternateDiv" style="display:block;margin-top:10px;">
         </div>
-       
-
-     <div class="container">
-         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Checkout</button>
-     </div>
+           
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
+                        <p class="modal-title" style="font-weight:bold">CREW MEMBER INFORMATION</p>
                     </div>
                     <div class="modal-body">
 
@@ -100,14 +96,15 @@
                                 <option value="East Coast Office">East Coast Office</option>
                             </select>
                         </div>
-                        <div id="btnDiv" style="margin:15px auto;text-align:center">
+                        <div id="btnDiv" style="margin:15px auto;text-align:right">
 
-                            <button id="btnSubmit" class="btn btn-danger" type="button" onclick="validateFrm();" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
-                            <button id="btnClear" class="btn btn-default" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button>
+                            <button id="btnSubmit" class="btn btn-danger" type="button" onclick="validateFrm();" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;            
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div id="messageDiv" style="display:block;margin:5px auto;width:25%">
+                            <span id="cartMessages" style="text-align:center;display:block;font-family:'Arial';font-weight:bold;font-size:12px;color:darkred"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,8 +128,8 @@
             </select>
         </div>-->
         <div id="btnDiv" style="margin:15px auto;text-align:center">
-
-            <button id="btnSubmit" class="btn btn-danger" type="button" onclick="validateFrm();" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
+            
+            <button id="btnSubmit" class="btn btn-danger" data-toggle="modal" data-target="#myModal" type="button" value="send" style="margin:30px auto 15px auto;">CHECK OUT</button>&nbsp;
             <button id="btnClear" class="btn btn-default" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button>
         </div>
         
@@ -140,9 +137,9 @@
 
     </form>
 
-    <div id="messageDiv" style="display:block;margin:15px auto;width:25%">
+    <!--<div id="messageDiv" style="display:block;margin:15px auto;width:25%">
         <span id="cartMessages" style="text-align:center;display:block;font-family:'Arial';font-weight:bold;font-size:26px;color:darkred"></span>
-    </div>
+    </div>-->
     <button id="btnAlternate" class="btn" style="float:right;margin:30px auto 15px auto;visibility:hidden" disabled></button>
     <button id="btnAdd" class="btn" style="float:right;margin:30px auto 15px auto;visibility:hidden" disabled></button>
 
@@ -240,11 +237,13 @@
             for (var i = 0; i < _rField.length; i++) {
                 if (_rField[i].value == "") {
                     _rField[i].style.border = '1px solid darkred'
+                    _rField[i].focus()
                     cartAlert('Fields Required')
                     return false
                 }
                 if (_comp.selectedIndex == 0) {
                     _comp.style.border = '1px solid darkred'
+                    _comp.focus()
                     cartAlert('Please Select Office')
                     return false
                 }
