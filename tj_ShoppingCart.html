@@ -63,7 +63,8 @@
     <div style="margin-top:85px">
         <h1>Shopping Cart</h1>
     </div>
-    <form action="https://formspree.io/conradlimphoto@gmail.com" method="POST">
+    
+    <form action="https://formspree.io/conradlimphoto@gmail.com" id="gForm" method="POST">
         <input id="form-subject" value="New Hawaiian Shirt Order" type="hidden">
         <div id="tblDiv" style="display:block;margin-top:10px;">
         </div>
@@ -71,15 +72,59 @@
         <h3 style="margin-top:50px;text-align:center;margin-left:-745px" id="altLabel">Alternative Choices</h3>
         <div id="tblAlternateDiv" style="display:block;margin-top:10px;">
         </div>
+       
+
+     <div class="container">
+         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Checkout</button>
+     </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div style="text-align:center;">
+                            <h3>Name:</h3>
+                            <input id="form-name" name="Name" class="formField" required>
+                            <h3>Email:</h3>
+                            <input id="form-email" name="Email" class="formField" type="email" required>
+
+                            <h3>Specify WCO or ECO:</h3>
+                            <select id="form-office" name="Company" required>
+                                <option>--</option>
+                                <option value="West Coast Office">West Coast Office</option>
+                                <option value="East Coast Office">East Coast Office</option>
+                            </select>
+                        </div>
+                        <div id="btnDiv" style="margin:15px auto;text-align:center">
+
+                            <button id="btnSubmit" class="btn btn-danger" type="button" onclick="validateFrm();" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
+                            <button id="btnClear" class="btn btn-default" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
 
         <div style="text-align:center;">
             <h3>Name:</h3>
-            <input id="form-name" class="formField" required>
+            <input id="form-name" name="Name" class="formField" required>
             <h3>Email:</h3>
-            <input id="form-email" class="formField" type="email" required>
+            <input id="form-email" name="Email" class="formField" type="email" required>
 
             <h3>Specify WCO or ECO:</h3>
-            <select id="form-office" required>
+            <select id="form-office" name="Company" required>
                 <option>--</option>
                 <option value="West Coast Office">West Coast Office</option>
                 <option value="East Coast Office">East Coast Office</option>
@@ -90,9 +135,8 @@
             <button id="btnSubmit" class="btn btn-danger" type="button" onclick="validateFrm();" value="send" style="margin:30px auto 15px auto;">SUBMIT ORDER</button>&nbsp;
             <button id="btnClear" class="btn btn-default" type="button" onclick="clearCart()" style="margin:30px auto 15px auto;">CLEAR CART</button>
         </div>
-
-        <div id="orderForm" style="display:block;margin-top:10px">
-        </div>
+        
+     
 
     </form>
 
@@ -102,8 +146,12 @@
     <button id="btnAlternate" class="btn" style="float:right;margin:30px auto 15px auto;visibility:hidden" disabled></button>
     <button id="btnAdd" class="btn" style="float:right;margin:30px auto 15px auto;visibility:hidden" disabled></button>
 
+       
+
     <script src="js/jquery.js"></script>
     <script src="js/contactform.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function loadCart() {
             shirtCart = JSON.parse(localStorage.getItem("CartItems"))
@@ -134,7 +182,7 @@
             //Initial Cart
             for (var i = 0; i < shirtCart.length; i++) {
                 html += "<tr>";
-                html += "<td>" + "<button id='deleteItem' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
+                html += "<td>" + "<button id='deleteItem' name='check' type='button' class='glyphicon glyphicon-remove' style='border-radius:5px;border:1px solid #f5f5f5;' onclick='return removeItem(this);false' value='" + shirtCart[i].id + "-" + shirtCart[i].name + " - " + shirtCart[i].color + " - " + shirtCart[i].size + " - " + shirtCart[i].type + " - " + shirtCart[i].gender + " - " + shirtCart[i].count + "' data-id='" + shirtCart[i].id + "' data-color='" + shirtCart[i].color + "'></button></td>";
                 html += "<td>" + shirtCart[i].id + "-" + shirtCart[i].name + "</td>";
                 html += "<td>" + shirtCart[i].color + "</td>";
                 html += "<td>" + shirtCart[i].size + "</td>";
@@ -213,7 +261,7 @@
                 success: function () {
                     window.location = "thank-you-pg.html"
                     clearCart()
-                    console.log("Success")
+                    console.log("Success")                    
                 },
                 error: function () {
                     console.log("FAIL")
@@ -224,7 +272,7 @@
                     Email: document.getElementById('form-email').value,
                     _cc: document.getElementById('form-email').value,
                     _subject: document.getElementById('form-subject').value,
-                    Cart: document.getElementById('tblDiv').innerText,
+                     Cart: document.getElementById('tblDiv').innerText,
                     NOTICE: "Alternate Shirts Labeled By 'A'",
                     AlternateShirts: document.getElementById('tblAlternateDiv').innerText,
                 },
