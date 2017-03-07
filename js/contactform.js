@@ -133,7 +133,7 @@ function addToAlternate(ids) {
         }
         var item = new ShirtItem(id, name, size, color, type, gender, count)
         alternateCart.push(item)
-        cartAlert("")
+        cartAlert(color+ " "+ name + " Alternate Saved")
         saveAlternateCart()
     }
     if (alternateCart.length == 3) {
@@ -165,7 +165,6 @@ function addItemToCart(ids) {
                 cartAlert(color + " - " + name + " Already In Cart")
                 return false
             }
-
         }
         var item = new ShirtItem(id, name, size, color, type, gender, count)
         _ddlType.disabled = 'disabled'
