@@ -103,6 +103,10 @@
                     <option data-type="Button">Button</option>
                 </select>
                 <br />
+                     <h3>Sizes Available:</h3>
+                <select id="ddlSize" class="ddList" name="Size">
+                     <option value="Select">Select Size</option>
+                </select>
                 <h3>Colors Available</h3>
                 <select id="ddlStyle" class="ddList" name="Color">
                     <option value="Select">Select Color</option>
@@ -110,10 +114,7 @@
                     <option data-id="17107" data-style="Waipo" data-gender="Womens" data-color="Whte/Blck" data-count=1>White/Black</option>
                     <option data-id="17107" data-style="Waipo" data-gender="Womens" data-color="Sage" data-count=1>Sage</option>
                     <option data-id="17107" data-style="Waipo" data-gender="Womens" data-color="Whte/Blue" data-count=1>White/Blue</option>                  
-                </select>
-                <h3>Sizes Available:</h3>
-                <select id="ddlSize" class="ddList" name="Size">
-
+                </select>                
                 </select>
                 <div id="btnDiv">
                     <p>
@@ -139,7 +140,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
-        function populateSelect() { shirtstyle = _ddlType.value, $("#ddlSize").html(""), eval(shirtstyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } function populateSelectOnLoad() { shirtStyle = shirtCart[0].type, console.log("page js"), $("#ddlSize").html(""), eval(shirtStyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } Pullover = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL"), Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL"), Select = new Array("--"); var _ddlType = document.getElementById("ddlType"); $(function () { $("#ddlType").change(function () { populateSelect() }) });
+        function populateSelect() { shirtstyle = _ddlType.value, $("#ddlSize").html(""), eval(shirtstyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } function populateSelectOnLoad() { shirtStyle = shirtCart[0].type, console.log("page js"), $("#ddlSize").html(""), eval(shirtStyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } Pullover = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL"), Button = new Array("Button Sizes","XXS", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL"), Select = new Array("--"); var _ddlType = document.getElementById("ddlType"); $(function () { $("#ddlType").change(function () { populateSelect() }) });
     </script>
 </body>
 

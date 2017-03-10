@@ -101,6 +101,10 @@
                     <option name="button" data-type="Button">Button</option>
                 </select>
                 <br />
+                     <h3>Sizes Available:</h3>
+                <select id="ddlSize" class="ddList" name="Size">
+                     <option value="Select">Select Size</option>
+                </select>
 
                 <h3>Colors Available</h3>
                 <select id="ddlStyle" class="ddList" name="Color">
@@ -111,9 +115,7 @@
                     <option data-id="17104" data-style="Swirly" data-gender="Womens" data-color="Purple" data-count=1>Purple</option>
                                   
                 </select>
-                <h3>Sizes Available:</h3>
-                <select id="ddlSize" class="ddList" name="Size"></select>
-
+                
                 <div id="btnDiv">
                     <p>
                         Hover the cursor over the image to view the color.
@@ -136,6 +138,11 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/contactform.js"></script>
+   <script type="text/javascript">
+
+        function populateSelect() { shirtstyle = _ddlType.value, $("#ddlSize").html(""), eval(shirtstyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } function populateSelectOnLoad() { shirtStyle = shirtCart[0].type, console.log("page js"), $("#ddlSize").html(""), eval(shirtStyle).forEach(function (e) { $("#ddlSize").append('<option value="' + e + '">' + e + "</option>") }) } Pullover = new Array("Pullover Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL"), Button = new Array("Button Sizes","XXS", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL"), Select = new Array("--"); var _ddlType = document.getElementById("ddlType"); $(function () { $("#ddlType").change(function () { populateSelect() }) });
+    </script>
+
    
 
 
