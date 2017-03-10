@@ -1,0 +1,638 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="Site Created and Coded by Conrad Lim - Trader Joe's Project - Shirt Order Form" content="custom hawaiian shirt for Trader Joe's">
+      <meta name="Conrad Lim" content="Trader Joe's Ordering Form for Hawaiian Shirts.">
+      <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/tjfav.png">
+      <!-- Site Built and Coded by Conrad Lim  -->
+      <title>Trader Joe's Hawaiian Shirt </title>
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet" />
+      <!-- Custom CSS -->
+      <link href="css/modern-business.css" rel="stylesheet">
+      <!-- Custom Fonts -->
+      <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="css/reg-main.css" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+      <!-- script to toggle email form -->
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script type="text/javascript">
+         function toggleDiv(divId) {
+             $("#" + divId).toggle();
+         }
+      </script>
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <table style="border:1px dotted gray;margin-top:29px;margin-bottom:3px;width:100%;background-color:darkred;">
+            <tr>
+               <td>
+                  <h3 style="color:white;padding:0px;margin-bottom:-5px;text-align:center"> If you don't wish to select your own shirts, we can ship an assortment set for you.  Just fill in the form below:</h3>
+                  <div id="randShirtFrm" style="display:none;text-align:center;background-color:white;">
+                     <form id="gForm" action="https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec" method="POST">
+                        <input name="_subject" id="form-subject" value="Random Shirt Order Form" type="hidden">
+                        <input name="_next" value="http://conradp04.github.io/testingShirt/thank-you-pg.html" type="hidden">
+                        <h3 style="text-align:center">Full Name:</h3>
+                        <input name="Name" id="_name" class="form-field" type="text">
+                        <h3 style="text-align:center">Email:</h3>                      
+                        <input name="Email" id="_email" class="form-field" type="email">
+                          <h3 style="text-align:center">Office:</h3>
+                        <select id="ddlOffice" name="Office" class="ddlReq">
+                           <option name="Select">Select</option> 
+                           <option name="West Coast Office">West Coast Office</option>
+                           <option name="East Coast Office">East Coast Office</option>
+                        </select>
+                        <h3 name="Gender" style="text-align:center">Choose Fit:</h3>
+                        <select id="ddlFit" name="Fit" class="ddlReq" onchange="return changeType();">
+                           <option name="Select">Select</option>
+                           <option data-fit="Mens">Mens</option>
+                           <option data-fit="Womens">Womens</option>
+                        </select>
+                        <h3 name="StyleChoice:" style="text-align:center;" required>Style Choice:</h3>
+                        <select id="ddlStyle" name="Style" class="ddlReq">
+                           <option>--</option>
+                        </select>
+                        <h3 name="Size:" style="text-align:center">Sizes Available:</h3>
+                        <select id="ddlSize" name="Size" class="ddlReq">
+                           <option>--</option>
+                        </select>
+                        <br />
+                        <br />
+                        <button type="button" onclick="validateRandOrder()" value="Send" class="btn btn-primary">Submit Order</button>
+                     </form>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <div class="ranDiv" style="text-align:center;display:block;margin-top:-28px;">
+                     <h3>  <a id="ranToggle" href="javascript:toggleDiv('randShirtFrm');">RANDOM SHIRT FORM</a></h3>
+                  </div>
+               </td>
+            </tr>
+         </table>
+      </nav>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <div>
+                  <img id="logoTj" src="photos/tj_logo_b.png">
+               </div>
+            </div>
+            <div id="countDiv" style="margin-left:950px;margin-top:15px;">
+               <a href="index.html" style="font-size:15px;font-weight:bold;font-family:'Roboto';margin-right:5px;color:#353333">Home</a>
+               <label style="font-weight:bold;font-size:15px;margin-left:20px" class="glyphicon glyphicon-shopping-cart"></label>&nbsp;
+               <a href="tj_ShoppingCart.html">
+               <span id="countContainer" style="margin-left:-6px;padding:3px 3px;background-color:darkred;border:1px solid darkred;border-radius:25px;">
+               <span id="showCount" style="color:#fff;font-weight:bold;margin:3px 5px; "></span>
+               </span>
+               </a>
+            </div>
+         </div>
+      </nav>
+      <!-- Header Carousel -->
+      <header id="myCarousel" class="carousel slide">
+         <!-- Wrapper for slides -->
+         <div class="carousel-inner" id="carousel">
+            <div class="item active">
+               <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/testingShirt/master/photos/tjSiteHeaderJpg/headImg_003-2.jpg');"></div>
+               <div class="carousel-caption">
+                  <h2></h2>
+               </div>
+            </div>
+            <div class="item">
+               <div class="fill" style="background-image:url('https://raw.githubusercontent.com/clim-TJ/shirtorder/master/photos/tjSiteHeaderJpg/headImg-7.jpg');"></div>
+               <div class="carousel-caption">
+                  <h2></h2>
+               </div>
+            </div>
+            <div class="item">
+               <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/testingShirt/master/photos/tjSiteHeaderJpg/headImg_001-2.jpg');"></div>
+               <div class="carousel-caption">
+                  <h2></h2>
+               </div>
+            </div>
+            <!-- <div class="item">
+               <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/banner_07.jpeg');"></div>
+               <div class="carousel-caption">
+                   <h2></h2>
+               </div>
+               </div> -->
+            <!--<div class="item">
+               <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_5.jpg');"></div>
+               <div class="carousel-caption">
+                   <h2></h2>
+               </div>
+               </div>
+               <div class="item">
+               <div class="fill" style="background-image:url('https://raw.githubusercontent.com/conradp04/tj-shirt-project/master/TJ-site/photos/bannerphoto_3.jpg');"></div>
+               <div class="carousel-caption">
+                   <h2></h2>
+               </div>
+               </div>-->
+         </div>
+         <!-- Controls -->
+         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+         <span class="icon-prev"></span>
+         </a>
+         <a class="right carousel-control" href="#myCarousel" data-slide="next">
+         <span class="icon-next"></span>
+         </a>
+      </header>
+      <!-- Page Content -->
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <h1 class="page-header">
+                  Men's Reverse Hawaiian Shirts
+               </h1>
+            </div>
+         </div>
+         <!-- Portfolio Section -->
+         <div class="row">
+            <div class="col-md-3">
+               <a href="mini-tahitian-m.html">
+                  <div class="thumbtitle">Mini Tahitian </div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/MiniTahitianWhite.jpg" title="mini tahitian">                    
+               </a>
+               <div style="margin:-27px 0px 0px 30px;position: relative;">    
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-1.jpg">            
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-12.jpg">    
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-4.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-5.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-6.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-7.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini-tahitian-8.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="hibiscus-garden-m.html">
+                  <div class="thumbtitle">Hibiscus Garden </div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Hibiscus%20Garden-Black_.jpg" title="hibiscus garden">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_garden-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_garden-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_garden-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_garden_w-4.jpg">                                  
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="waikiki-batik-m.html">
+                  <div class="thumbtitle">Waikiki Batik </div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/waikiki-batik_fp.jpg" style="height:181px;width:260px" title="Waikiki Batik">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik-4.jpg">                                  
+               </div>
+            </div>
+            <!--photo needed-->
+            <div class="col-md-3">
+               <a href="tiare-tapa_m.html">
+                  <div class="thumbtitle">Tiare Tapa </div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tiare-tapa_fp.jpg" title="Tiare Tapa">
+               </a>
+               <div class="miniDiv"  style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/tiare-tapa-1-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/tiare-tapa-2-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/tiare-tapa-3-2.jpg">
+               </div>
+            </div>
+            <!--- Second Line for Shirt -->
+            <div class="col-md-3">
+               <a href="floral-wave-m.html">
+                  <div class="thumbtitle">Floral Wave</div>
+                  <img class="img-responsive img-portfolio img-hover" style="height:181px;" src="photos/smallshirts/floral-wave_fp-1.jpg" title="Floral Wave">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/floral-wave-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/floral-wave-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/floral-wave-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/floral-wave-4.jpg">                                  
+               </div>
+            </div>
+            <div class="col-lg-12">
+               <div class="col-md-3">
+                  <a href="kamalu-m.html">
+                     <div class="thumbtitle">Kamalu </div>
+                     <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/kamalu-2.jpg" title="Kamalu">
+                  </a>
+                  <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/kamalu-1.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/kamalu-2.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/kamalu-3.jpg">
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <a href="tapa-waikiki-m.html">
+                     <div class="thumbtitle">Tapa Waikiki</div>
+                     <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/tapa-waikiki-2.jpg" title="Tapa Waikiki">
+                  </a>
+                  <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/tapa-waikiki-1.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/tapa-waikiki-2.jpg">
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <a href="maile-stripe-m.html">
+                     <div class="thumbtitle">Maile Stripe</div>
+                     <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/maile-stripe-1.jpg" title="Maile Stripe">
+                  </a>
+                  <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/maile-stripe-1.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/maile-stripe-2.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/maile-stripe-3.jpg">
+                  </div>
+               </div>
+               <!--- Third Line for Shirt -->
+               <div class="col-md-3">
+                  <a href="petro-wave-m.html">
+                     <div class="thumbtitle">Petro Wave</div>
+                     <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/petro-wave-1.jpg" title="Petro Wave">
+                  </a>
+                  <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/petro-wave-1.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/petro-wave-2.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/petro-wave-3.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/petro-wave-4.jpg">                                  
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <a href="distress-pareau-m.html">
+                     <div class="thumbtitle">Distress Pareau</div>
+                     <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/distress-pareau-2.jpg" title="Distress Pareau">
+                  </a>
+                  <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/distress-pareau-1.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/distress-pareau-2.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/distress-pareau-3.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/distress-pareau-4.jpg">                                  
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <a href="striped-leaves-m.html">
+                     <div class="thumbtitle">Striped Leaves</div>
+                     <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/striped-leaves-4.jpg" title="Striped Leaves">
+                  </a>
+                  <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/striped-leaves-1.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/striped-leaves-2.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/striped-leaves-3.jpg">
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/striped-leaves-4.jpg">                                  
+                     <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/striped-leaves-5.jpg">                                  
+                  </div>
+               </div>
+            </div>
+            <!-- WOMENS SECTION -->
+            <div class="row">
+               <div class="col-lg-12">
+                  <h1 class="page-header">
+                     Women's Hawaiian Shirts
+                  </h1>
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="diamond-head-w.html">
+                  <div class="thumbtitle">Diamond Head</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/DiamondHead_w.jpg" title="diamond head">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/diamond_head-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/diamond_head-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/diamond_head-3.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="hapuna-moon-w.html">
+                  <div class="thumbtitle">Hapuna Moon</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/HapunaMoon_w.jpg" title="hapuna moon">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hapuna_moon-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hapuna_moon-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hapuna_moon-3.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="mini-tahitian-w.html">
+                  <div class="thumbtitle">Mini Tahitian</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/MiniTahitianWhite.jpg" title="Mini Tahitian">
+               </a>
+               <div style="margin:-27px 0px 0px 44px;position: relative;">    
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-4.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-5.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-6.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-7.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/mini_tahitian_w-8.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="wild-tapa-w.html">
+                  <div class="thumbtitle">Wild Tapa</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/Wild%20Tapa.jpg" title="wild tapa">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/wild_tapa_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/wild_tapa_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/wild_tapa_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/wild_tapa_w-4.jpg">
+               </div>
+            </div>
+            <!--- Second Line for Shirt -->
+            <div class="col-md-3">
+               <a href="heliconia-w.html">
+                  <div class="thumbtitle">Heliconia</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/heliconia_w-1.jpg" title="Heliconia">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/heliconia_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/heliconia_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/heliconia_w-5.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="preppy-pareau-w.html">
+                  <div class="thumbtitle">Preppy Pareau</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/preppy-pareau_w-3.jpg" title="Preppy Pareau">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/preppy-pareau_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/preppy-pareau_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/preppy-pareau_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/preppy-pareau_w-4.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="waipo-w.html">
+                  <div class="thumbtitle">Waipo</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/waipo_w-4.jpg" title="Waipo">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waipo_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waipo_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waipo_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waipo_w-4.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="ditsy-tiare-w.html">
+                  <div class="thumbtitle">Ditsy Tiare</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/ditsy-tiare_w-2.jpg" title="Ditsy Tiare">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/ditsy-tiare_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/ditsy-tiare_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/ditsy-tiare_w-4.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/ditsy-tiare_w-5.jpg">
+               </div>
+            </div>
+            <!--- Third Line for Shirt -->
+            <div class="col-md-3">
+               <a href="waikiki-batik-w.html">
+                  <div class="thumbtitle">Waikiki Batik</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/waikiki-batik_w-3.jpg" title="Waikiki Batik">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/waikiki-batik_w-4.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="hibiscus-w.html">
+                  <div class="thumbtitle">Hibiscus</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/hibiscus_w-3.jpg" title="Hibiscus">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hibiscus_w-4.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="hombre-tapa-w.html">
+                  <div class="thumbtitle">Hombre Tapa</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/hombre-tapa_w-1.jpg" title="Hombre Tapa">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hombre-tapa_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hombre-tapa_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hombre-tapa_w-1.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="swirly-w.html">
+                  <div class="thumbtitle">Swirly</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/swirly_w-1.jpg" title="Swirly">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/swirly_w-1.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/swirly_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/swirly_w-4.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/swirly_w-3.jpg">
+               </div>
+            </div>
+            <div class="col-md-3">
+               <a href="hawaiian-creation-w.html">
+                  <div class="thumbtitle">Hawaiian Creation</div>
+                  <img class="img-responsive img-portfolio img-hover" src="photos/smallshirts/hawaiian-creation_w-3.jpg" title="Hawaiian Creation">
+               </a>
+               <div class="miniDiv" style="margin:-27px 0px 0px 45px;position: relative;">               
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hawaiian-creation_w-3.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hawaiian-creation_w-2.jpg">
+                  <img class="effectfront" style="width: 20px;height: 23px;padding-top: 1px;margin-right: 2px;float:left;" src="photos/mini-thumbs/hawaiian-creation_w-1.jpg">
+               </div>
+            </div>
+            <!-- /.row -->
+            <!--ORDER FORM -->
+            <hr />
+            <div class="row">
+               <div class="col-lg-12">
+                  <h2 class="page-header" style="font-family:Roboto;"><small><strong>Questions? Contact us through here: <a href="javascript:toggleDiv('myContent');">Form</a></strong></small></h2>
+                  <div id="myContent" style="display:none;text-align:center">
+                     <form action="https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec" method="POST" id="gForm">
+                        <input id="qSubject" name="Subject" value="Questions On Hawaiian Shirt Orders" type="hidden">
+                        <input name="_next" value="http://conradp04.github.io/tj-shirt-project/TJ-site/email-received.html" type="hidden">
+                        <h3 style="text-align:center">Full Name:</h3>
+                        <input id="qName" name="Name" required="" type="text">
+                        <h3 style="text-align:center">Email:</h3>
+                        <input id="qEmail" name="Email" type="email">
+                        <h3 style="text-align:center">Questions:</h3>
+                        <textarea id="qMessage" name="CM_Message" placeholder="Type your question." rows="6" cols="60"></textarea>
+                        <br />
+                        <button type="button" onclick="submitEmail()" class="btn btn-primary">Send Message</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /.row -->
+         <div></div>
+         <!-- Footer -->
+         <footer>
+            <div class="row">
+               <div class="col-lg-12">
+                  <font style="color:white;float:right;font-family:century-gothic;font-size:10px;"> Copyright &copy; Conrad Lim 2016 TJProjectHR</font>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- /.container -->
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/contactform.js"></script>
+      <script type="text/javascript">
+         var _name = document.getElementById('_name')
+         var _email = document.getElementById('_email')
+         var _fit = document.getElementById('ddlFit')
+         var _style = document.getElementById('ddlStyle')
+         var _size = document.getElementById('ddlSize')
+         
+         var _rField = document.getElementsByClassName('form-field')
+         var _ddlField = document.getElementsByClassName('ddlReq')
+         
+         function validateRandOrder() {
+             for (var i = 0; i < _rField.length; i++) {
+                 if (_rField[i].value == "") {
+                     _rField[i].style.border = '1px solid darkred'
+                     _rField[i].focus()
+                     alert(_rField[i].name + " Needed")
+                     
+                 }
+             }
+             for (var j = 0; j < _ddlField.length; j++) {
+                 if (_ddlField[j].selectedIndex == 0) {
+                     _ddlField[j].style.border = '1px solid darkred'
+                     return false
+                 }
+             }
+            submitCall()
+         }
+         
+         function changeType() {
+             $('#ddlStyle').html('')
+             $('#ddlSize').html('')
+             if (_fit.value == "Mens") {
+                 $('#ddlStyle').append('<option value="' + '' + '">' + 'Select' + '</option>')
+                 $('#ddlStyle').append('<option value="' + 'Pullover' + '">' + 'Pullover' + '</option>')
+                 $('#ddlStyle').append('<option value="' + 'Button' + '">' + 'Button' + '</option>')
+             } else if (_fit.value == "Womens") {
+                 $('#ddlStyle').append('<option value="' + '' + '">' + 'Select' + '</option>')
+                 $('#ddlStyle').append('<option value="' + 'Pullovers' + '">' + 'Pullovers' + '</option>')
+                 $('#ddlStyle').append('<option value="' + 'Buttons' + '">' + 'Buttons' + '</option>')
+             } else {
+                 $('#ddlStyle').append('<option value="' + '' + '">' + '--' + '</option>')
+                 $('#ddlSize').val('<option value="' + 'Select' + '">' + '--' + '</option>')
+         
+             }
+         }
+         
+         
+         //         Populate Size List Based on Pullover/Button DDL Selection //
+         //mens
+         Pullover = new Array("Pullover Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XL-T", "3XL", "3XL-T", "4XL", "5XL");
+         Button = new Array("Button Sizes", "XS", "SM", "MED", "LG", "LG-T", "XL", "XL-T", "2XL", "2XL-T", "3XL", "3XL-T", "4XL", "5XL");
+         
+         //womens
+         Pullovers = new Array("Pullovers Sizes", "XXS", "XS", "SM", "MED", "LG", "XL", "2XL");
+         Buttons = new Array("Buttons Sizes","XXS", "XS", "SM", "MED", "LG", "XL", "2XL", "3XL");
+         Select = new Array("--")
+         
+         
+         $(function () {
+             $('#ddlStyle').change(function () {
+                 populateSelect();
+             });
+         });
+         function populateSelect() {
+             shirtstyle = _style.value
+             console.log(shirtstyle)
+             $('#ddlSize').html('--');
+             if (_style.value == 'Select') {
+                 console.log(_style.value)
+                 $('#ddlSize').append('<option value="' + 'Select' + '">' + '--' + '</option>');
+             } else {
+                 eval(shirtstyle).forEach(function (t) {
+                     $('#ddlSize').append('<option value="' + t + '">' + t + '</option>');
+         
+                 });
+             }
+         };
+         
+         function submitCall() {
+             $.ajax({
+                 url: "https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec",
+                 method: "POST",
+                 success: function () {
+                     window.location = "thank-you-pg.html"
+                     clearCart()
+                     console.log("Success")
+                 },
+                 error: function () {
+                     console.log("FAIL")
+                 },
+                 data: {
+                     Name: document.getElementById('_name').value,                    
+                     Email: document.getElementById('_email').value,
+                     Office: document.getElementById('ddlOffice').value,
+                     Subject: document.getElementById('form-subject').value,
+                     Fit: document.getElementById('ddlFit').value,
+                     Style: document.getElementById('ddlStyle').value,
+                     Size: document.getElementById('ddlSize').value
+                 },
+                 dataType: "json"
+             });
+         }
+         
+         function submitEmail() {
+             $.ajax({
+                 url: "https://script.google.com/macros/s/AKfycbwFtiTgKHQCuEDr3plZAsH1pQSHGMtyf2WIPt1JMJiFYvVOtIHq/exec",
+                 method: "POST",
+                 success: function () {
+                     window.location = "email-received.html"
+                     clearCart()
+                     console.log("EmailSuccess")
+                 },
+                 error: function () {
+                     console.log("FAIL")
+                 },
+                 data: {
+                     Name: document.getElementById('qName').value,
+                     Email: document.getElementById('qEmail').value,
+                     Subject: document.getElementById('qSubject').value,
+                     CM_Message: document.getElementById('qMessage').value,               
+                 },
+                 dataType: "json"
+             });
+         
+         }
+         
+      </script>
+      <script>
+         //$('.carousel').carousel({
+         //    interval: 10000 //changes the speed
+         //})
+      </script>
+   </body>
+</html>
+
