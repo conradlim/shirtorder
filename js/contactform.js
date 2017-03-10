@@ -137,7 +137,7 @@ function addToAlternate(ids) {
         saveAlternateCart()
     }
     if (alternateCart.length == 3) {
-        cartAlert("Quantities met.  Please confirm your selection")
+        cartAlert("<a href='tj_ShoppingCart.html' style='color:white'>Quantities met.  Please confirm your selection</a>")
         btnAlternate.disabled = 'disabled'
         btnAdd.disabled = 'disabled'
         msgDiv.style.backgroundColor = "darkred"
