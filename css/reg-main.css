@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 html, h1, h2, h4, ol {
     margin: 0;
@@ -132,6 +133,7 @@ h3 {
 
 #btnDiv {
     margin-top: 15px;
+    
 }
 
 li {
@@ -143,12 +145,13 @@ div ul li {
 }
 
 a {
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     color: #777;
 }
 
 p {
     font-size: 14px;
+    font-family: 'Montserrat'
 }
 
 em {
@@ -256,4 +259,10 @@ a#ranToggle {
   transform: scale(4.2);
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
+}
+.backLnk{    
+    /*color:darkred;*/
+   float:right;
+   margin-top:45px;
+   margin-left:15px;
 }
