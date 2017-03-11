@@ -64,7 +64,15 @@ table {
     color: gray;
     background-color: whitesmoke;
 }
-
+#btnAlternate:enabled{
+    border:1px solid darkred;
+    color:darkred;
+}
+#btnAlternate:hover{
+    color: #fff;
+    background-color: darkred;
+    box-shadow: 0px 2px 5px 1px #51514C;
+}
 #btnSubmit {
     color: #fff;
     background-color: darkred;
