@@ -181,7 +181,7 @@ function addItemToCart(ids) {
         _ddlSize.disabled = 'disabled'
         _ddlSize.style.backgroundColor = 'lightgray'
         shirtCart.push(item)
-        cartAlert(color+"-"+name+" Saved")
+        cartAlert(color+"-"+name+" ADDED")
         console.log("weaddup")
         saveCart()
 
