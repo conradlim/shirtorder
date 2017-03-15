@@ -64,7 +64,7 @@
         <h1>Shopping Cart</h1>
     </div>
     
-    <form action="https://formspree.io/conradlimphoto@gmail.com" id="gForm" method="POST">
+    <form action="https://formspree.io/pcuriel@traderjoes.com" id="gForm" method="POST">
         <input id="form-subject" value="New Hawaiian Shirt Order" type="hidden">
         <div id="tblDiv" style="display:block;margin-top:10px;">
         </div>
@@ -273,14 +273,15 @@
 
         function submitCall() {
             $.ajax({
-                url: "https://formspree.io/conradlimphoto@gmail.com",
+                url: "https://formspree.io/pcuriel@traderjoes.com",
                 method: "POST",
                 success: function () {
                     window.location = "thank-you-pg.html"
-                    clearCart()
+                    clearCart()                    
                     console.log("Success")                    
                 },
                 error: function () {
+                    cartAlert("SUBMIT FAIL  <a href='index.html#contactF'>contact us</a> " )
                     console.log("FAIL")
                 },
                 data: {
